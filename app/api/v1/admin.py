@@ -103,10 +103,16 @@ async def component_health(session: SessionDep, perm: AdminDep):
     try:
         from app.rag.reranker import build_reranker
         rr = build_reranker()
+        # 注意：不同 provider 用的模型名不同（api 用 RERANK_MODEL，local 用 RERANK_LOCAL_MODEL），
+        # 之前这里写死成 RERANK_MODEL，导致本地模式下健康检查显示的模型名是错的
+        model_name = (settings.RERANK_LOCAL_MODEL if settings.RERANK_PROVIDER.lower() == "local"
+                      else settings.RERANK_MODEL)
+        device = getattr(rr, "_device", "")
         results.append(ComponentOut(
             name=f"reranker ({rr.name})", ok=settings.RERANK_ENABLED,
-            detail=f"provider={settings.RERANK_PROVIDER} model={settings.RERANK_MODEL}"
-                   + ("" if settings.RERANK_ENABLED else "（已关闭）"),
+            detail=f"provider={settings.RERANK_PROVIDER} model={model_name}"
+                   + (f" device={device}" if device else "")
+                   + ("" if settings.RERANK_ENABLED else " (disabled)"),
             latency_ms=int((time.perf_counter() - t0) * 1000),
         ))
     except Exception as e:  # noqa: BLE001
