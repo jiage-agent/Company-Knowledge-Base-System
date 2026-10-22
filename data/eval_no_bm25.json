@@ -1,0 +1,1204 @@
+{
+  "run_id": "eval-1791969099",
+  "dataset_size": 75,
+  "top_k": 5,
+  "metrics": [
+    {
+      "mode": "dense_bm25_rerank",
+      "mode_desc": "向量 + BM25 + RRF + 重排（完整链路）",
+      "questions": 75,
+      "recall_at_k": 1.0,
+      "mrr": 0.9867,
+      "ndcg": 0.9902,
+      "hit_rate": 1.0,
+      "avg_latency_ms": 658.7
+    }
+  ],
+  "detail": [
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "司龄满3年不满5年的员工年假有多少天？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1597,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "入职满5年不满10年的员工年假标准是多少？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 813,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "满10年以上的员工年假有多少天？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 583,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "带薪年休假的天数是怎么规定的？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 586,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "年假最多可以结转几天？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 3,
+      "gold_count": 1,
+      "latency_ms": 638,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "当年没休完的年假会作废吗？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 563,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "申请年假需要提前几天提交？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 3,
+      "gold_count": 1,
+      "latency_ms": 561,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "连续休假超过5个工作日需要谁审批？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 945,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "婚假有多少天？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 2,
+      "gold_count": 1,
+      "latency_ms": 607,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "配偶陪产假是多少天？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 3,
+      "gold_count": 1,
+      "latency_ms": 715,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "员工请假出去玩的假期额度是多少？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 0.5,
+      "ndcg": 0.631,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 590,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "病假期间工资怎么发放？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 4,
+      "gold_count": 1,
+      "latency_ms": 562,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "每月病假累计不能超过多少天？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 584,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "请病假需要什么证明材料？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 914,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "事假是带薪的吗？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 604,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "每月事假最多可以请几天？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 583,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "迟到多久会被按事假半天计算？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 611,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "月度迟到超过几次会扣全勤奖？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 3,
+      "gold_count": 1,
+      "latency_ms": 638,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "一线城市出差住宿标准是多少钱？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 1,
+      "gold_count": 1,
+      "latency_ms": 617,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "二线城市的住宿报销上限是多少？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 1,
+      "gold_count": 1,
+      "latency_ms": 627,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "其他城市的住宿标准是多少？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 1,
+      "gold_count": 1,
+      "latency_ms": 595,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "出差坐高铁有什么座位标准？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 1,
+      "gold_count": 1,
+      "latency_ms": 565,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "飞行时长超过4小时可以坐什么舱位？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 1,
+      "gold_count": 1,
+      "latency_ms": 593,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "业务招待费超过2000元需要谁审批？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 2,
+      "gold_count": 1,
+      "latency_ms": 620,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "业务招待费超过5000元需要谁审批？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 2,
+      "gold_count": 1,
+      "latency_ms": 605,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "年度体检费用公司承担多少？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 1,
+      "gold_count": 1,
+      "latency_ms": 608,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "加班需要提前申请吗？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 4,
+      "gold_count": 1,
+      "latency_ms": 576,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "工作日加班怎么折算调休？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 583,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "休息日加班按几倍折算调休？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 3,
+      "gold_count": 1,
+      "latency_ms": 577,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "法定节假日加班调休怎么算？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 4,
+      "gold_count": 1,
+      "latency_ms": 584,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "调休需要在多长时间内用完？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 597,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "工单编号的格式规范是什么？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 2,
+      "gold_count": 1,
+      "latency_ms": 636,
+      "expect_refusal": false,
+      "top_titles": [
+        "研发中心技术规范与故障处理手册",
+        "研发中心技术规范与故障处理手册"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "INC-2024-0912 这个编号符合规范吗？规范是什么？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 2,
+      "gold_count": 1,
+      "latency_ms": 646,
+      "expect_refusal": false,
+      "top_titles": [
+        "研发中心技术规范与故障处理手册",
+        "研发中心技术规范与故障处理手册"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "P0 工单代表什么级别的故障？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 2,
+      "gold_count": 1,
+      "latency_ms": 606,
+      "expect_refusal": false,
+      "top_titles": [
+        "研发中心技术规范与故障处理手册",
+        "研发中心技术规范与故障处理手册"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "P1 工单的响应时限是多久？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 1,
+      "gold_count": 1,
+      "latency_ms": 589,
+      "expect_refusal": false,
+      "top_titles": [
+        "研发中心技术规范与故障处理手册"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "P0 工单的处理时限是多久？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 1,
+      "gold_count": 1,
+      "latency_ms": 592,
+      "expect_refusal": false,
+      "top_titles": [
+        "研发中心技术规范与故障处理手册"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "工单关闭必须填写什么内容？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 2,
+      "gold_count": 1,
+      "latency_ms": 697,
+      "expect_refusal": false,
+      "top_titles": [
+        "研发中心技术规范与故障处理手册",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "生产发布窗口是每周什么时候？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 1,
+      "gold_count": 1,
+      "latency_ms": 586,
+      "expect_refusal": false,
+      "top_titles": [
+        "研发中心技术规范与故障处理手册"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "发布回滚时间要求不超过多久？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 1,
+      "gold_count": 1,
+      "latency_ms": 1037,
+      "expect_refusal": false,
+      "top_titles": [
+        "研发中心技术规范与故障处理手册"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "回滚脚本存放在哪个目录？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 1,
+      "gold_count": 1,
+      "latency_ms": 846,
+      "expect_refusal": false,
+      "top_titles": [
+        "研发中心技术规范与故障处理手册"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "灰度发布的比例节奏是怎样的？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 1,
+      "gold_count": 1,
+      "latency_ms": 637,
+      "expect_refusal": false,
+      "top_titles": [
+        "研发中心技术规范与故障处理手册"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "核心接口 P99 延迟告警阈值是多少？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 1,
+      "gold_count": 1,
+      "latency_ms": 565,
+      "expect_refusal": false,
+      "top_titles": [
+        "研发中心技术规范与故障处理手册"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "接口错误率告警阈值设为多少？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 2,
+      "gold_count": 1,
+      "latency_ms": 768,
+      "expect_refusal": false,
+      "top_titles": [
+        "研发中心技术规范与故障处理手册",
+        "研发中心技术规范与故障处理手册"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "数据库慢查询的阈值是多少？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 1,
+      "gold_count": 1,
+      "latency_ms": 596,
+      "expect_refusal": false,
+      "top_titles": [
+        "研发中心技术规范与故障处理手册"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "告警多久没响应会自动升级？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 1,
+      "gold_count": 1,
+      "latency_ms": 548,
+      "expect_refusal": false,
+      "top_titles": [
+        "研发中心技术规范与故障处理手册"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "公司环境划分为哪几套？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 1,
+      "gold_count": 1,
+      "latency_ms": 552,
+      "expect_refusal": false,
+      "top_titles": [
+        "研发中心技术规范与故障处理手册"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "生产环境配置变更要走什么流程？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 1,
+      "gold_count": 1,
+      "latency_ms": 597,
+      "expect_refusal": false,
+      "top_titles": [
+        "研发中心技术规范与故障处理手册"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "密钥应该存放在哪里？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 1,
+      "gold_count": 1,
+      "latency_ms": 596,
+      "expect_refusal": false,
+      "top_titles": [
+        "研发中心技术规范与故障处理手册"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "各部门年度预算什么时候提交？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 2,
+      "gold_count": 1,
+      "latency_ms": 785,
+      "expect_refusal": false,
+      "top_titles": [
+        "2024年度财务预算与费用审批权限规定",
+        "2024年度财务预算与费用审批权限规定"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "预算外支出超过多少需要总经理办公会审议？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 4,
+      "gold_count": 1,
+      "latency_ms": 623,
+      "expect_refusal": false,
+      "top_titles": [
+        "2024年度财务预算与费用审批权限规定",
+        "2024年度财务预算与费用审批权限规定",
+        "2024年度财务预算与费用审批权限规定"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "部门预算执行率低于60%会有什么后果？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 1,
+      "gold_count": 1,
+      "latency_ms": 661,
+      "expect_refusal": false,
+      "top_titles": [
+        "2024年度财务预算与费用审批权限规定"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "50万元以上的费用需要谁审批？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 616,
+      "expect_refusal": false,
+      "top_titles": [
+        "2024年度财务预算与费用审批权限规定",
+        "2024年度财务预算与费用审批权限规定",
+        "2024年度财务预算与费用审批权限规定"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "5万元以下的费用由谁审批？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 573,
+      "expect_refusal": false,
+      "top_titles": [
+        "2024年度财务预算与费用审批权限规定",
+        "2024年度财务预算与费用审批权限规定",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "差旅费报销需要在多长时间内提交？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 2,
+      "gold_count": 1,
+      "latency_ms": 576,
+      "expect_refusal": false,
+      "top_titles": [
+        "2024年度财务预算与费用审批权限规定",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "采购付款的账期标准是多少天？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 2,
+      "gold_count": 1,
+      "latency_ms": 1655,
+      "expect_refusal": false,
+      "top_titles": [
+        "2024年度财务预算与费用审批权限规定",
+        "2024年度财务预算与费用审批权限规定"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "预付款比例上限是多少？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 2,
+      "gold_count": 1,
+      "latency_ms": 565,
+      "expect_refusal": false,
+      "top_titles": [
+        "2024年度财务预算与费用审批权限规定",
+        "2024年度财务预算与费用审批权限规定"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "财务月报什么时候完成？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 4,
+      "gold_count": 1,
+      "latency_ms": 576,
+      "expect_refusal": false,
+      "top_titles": [
+        "2024年度财务预算与费用审批权限规定",
+        "2024年度财务预算与费用审批权限规定",
+        "2024年度财务预算与费用审批权限规定"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "应收账款逾期超过90天要计提多少坏账准备？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 1,
+      "gold_count": 1,
+      "latency_ms": 629,
+      "expect_refusal": false,
+      "top_titles": [
+        "2024年度财务预算与费用审批权限规定"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "公司现金流安全垫要求是多少？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 2,
+      "gold_count": 1,
+      "latency_ms": 618,
+      "expect_refusal": false,
+      "top_titles": [
+        "2024年度财务预算与费用审批权限规定",
+        "2024年度财务预算与费用审批权限规定"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "一线城市和二线城市的住宿标准分别是多少？",
+      "intent": "comparison",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 1,
+      "gold_count": 1,
+      "latency_ms": 651,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "工作日加班和法定节假日加班，调休折算比例有什么不同？",
+      "intent": "comparison",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 2,
+      "gold_count": 1,
+      "latency_ms": 855,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "年假和病假的证明材料要求有什么区别？",
+      "intent": "comparison",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 3,
+      "gold_count": 1,
+      "latency_ms": 597,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "P0 和 P1 工单的时限要求分别是什么？",
+      "intent": "comparison",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 1,
+      "gold_count": 1,
+      "latency_ms": 565,
+      "expect_refusal": false,
+      "top_titles": [
+        "研发中心技术规范与故障处理手册"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "事假和病假在薪资处理上有什么区别？",
+      "intent": "comparison",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 2,
+      "gold_count": 1,
+      "latency_ms": 603,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "如果一次业务招待花费2500元，需要谁审批？",
+      "intent": "multi_hop",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 2,
+      "gold_count": 1,
+      "latency_ms": 599,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "一个工单如果15分钟没人响应会怎样？",
+      "intent": "multi_hop",
+      "recall": 1.0,
+      "mrr": 0.5,
+      "ndcg": 0.631,
+      "retrieved": 4,
+      "gold_count": 1,
+      "latency_ms": 645,
+      "expect_refusal": false,
+      "top_titles": [
+        "研发中心技术规范与故障处理手册",
+        "研发中心技术规范与故障处理手册",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "员工单次连续休假7天需要经过哪几级审批？",
+      "intent": "multi_hop",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 580,
+      "expect_refusal": false,
+      "top_titles": [
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度",
+        "员工休假与考勤管理制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "如果发布失败需要回滚，时间和操作上有什么要求？",
+      "intent": "multi_hop",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 1,
+      "gold_count": 1,
+      "latency_ms": 616,
+      "expect_refusal": false,
+      "top_titles": [
+        "研发中心技术规范与故障处理手册"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "公司明年的战略规划是什么？",
+      "intent": "chitchat",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 0,
+      "gold_count": 0,
+      "latency_ms": 617,
+      "expect_refusal": true,
+      "top_titles": []
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "帮我写一首关于春天的诗",
+      "intent": "chitchat",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 0,
+      "gold_count": 0,
+      "latency_ms": 672,
+      "expect_refusal": true,
+      "top_titles": []
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "公司食堂今天中午吃什么？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 0,
+      "gold_count": 0,
+      "latency_ms": 564,
+      "expect_refusal": true,
+      "top_titles": []
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "竞争对手的产品定价是多少？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 0,
+      "gold_count": 0,
+      "latency_ms": 578,
+      "expect_refusal": true,
+      "top_titles": []
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "今年公司的股价表现怎么样？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 0,
+      "gold_count": 0,
+      "latency_ms": 638,
+      "expect_refusal": true,
+      "top_titles": []
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "推荐几部好看的电影",
+      "intent": "chitchat",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 0,
+      "gold_count": 0,
+      "latency_ms": 630,
+      "expect_refusal": true,
+      "top_titles": []
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "公司有没有员工持股计划？",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 0,
+      "gold_count": 0,
+      "latency_ms": 577,
+      "expect_refusal": true,
+      "top_titles": []
+    }
+  ]
+}

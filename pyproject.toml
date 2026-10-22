@@ -1,0 +1,51 @@
+[project]
+name = "company-knowledge-base-system"
+version = "1.0.0"
+description = "企业知识库问答系统（Agentic RAG + LangGraph + 混合检索 + 多租户权限）"
+requires-python = ">=3.13"
+dependencies = [
+    "aiosqlite>=0.22.1",
+    "alembic>=1.20.0",
+    "bcrypt>=5.0.0",
+    "chromadb>=1.5.9",
+    "fastapi>=0.143.0",
+    "greenlet>=3.5.6",
+    "httpx>=0.28.1",
+    "langgraph>=1.2.14",
+    "langgraph-checkpoint-sqlite>=3.1.2",
+    "langchain-openai>=1.7.1",
+    "langchain-text-splitters>=1.1.3",
+    "langsmith>=0.14.7",
+    "openpyxl>=3.1.5",
+    "pandas>=3.0.6",
+    "pydantic>=2.14.1",
+    "pydantic-settings>=2.15.0",
+    "pyjwt>=2.15.1",
+    "pypdf>=6.20.0",
+    "python-docx>=1.2.0",
+    "python-multipart>=0.0.32",
+    "rank-bm25>=0.2.2",
+    "redis>=8.1.0",
+    "sentence-transformers>=6.1.0",
+    "sqlalchemy[asyncio]>=2.1.4",
+    "sqlmodel>=0.0.48",
+    "uvicorn>=0.54.0",
+]
+
+# 说明：以下依赖保留但当前未启用，属于已规划的能力（不装也能跑通全部演示）
+#   celery / redis  -> 异步入库任务队列（见 README「运维与演进」）
+#   pdfplumber      -> PDF 表格结构化抽取
+#   pytesseract     -> 扫描件 OCR（需额外安装 tesseract 二进制）
+# 已移除的依赖：passlib、python-jose（改用 bcrypt + pyjwt，少一层封装少一个坑）
+
+[project.optional-dependencies]
+# 本地重排模型（离线场景）：uv sync --extra local-rerank
+local-rerank = ["torch>=2.2", "transformers>=4.40"]
+# 异步入库：uv sync --extra worker
+worker = ["celery>=5.4", "redis>=5.0"]
+# 扫描件 OCR：uv sync --extra ocr（另需安装 tesseract 可执行文件）
+ocr = ["pytesseract>=0.3.13", "pdfplumber>=0.11.10", "pillow>=10.0"]
+
+[[tool.uv.index]]
+url = "https://mirrors.aliyun.com/pypi/simple"
+default = true

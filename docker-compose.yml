@@ -1,0 +1,126 @@
+# ============================================================
+# 容器化部署编排
+#
+# 用法：
+#   docker compose up -d --build          # 启动 api
+#   docker compose --profile milvus up -d # 额外启动 Milvus（升级向量库时）
+#   docker compose logs -f api            # 看日志
+#   docker compose down -v                # 停止并清空数据卷
+#
+# 说明：本项目开发/演示时是本地 Python 直跑（Windows 需要 WSL2 才能用 Docker）。
+#       这个文件用于 Linux 部署，以及面试时展示"可容器化部署"的工程能力。
+# ============================================================
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: company-kb:1.0.0
+    container_name: company-kb-api
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      # 容器内路径与本地不同：数据统一挂到 /app/data
+      DATABASE_URL: sqlite+aiosqlite:////app/data/sqlite/app.db
+      CHROMA_PERSIST_DIR: /app/data/chroma
+      # 需要连 Milvus 时把下面两行打开，并把 VECTOR_STORE_TYPE 改成 milvus
+      # VECTOR_STORE_TYPE: milvus
+      # MILVUS_URI: http://milvus:19530
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8000/ready',timeout=4).status==200 else 1)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 60s
+    networks:
+      - kb-net
+
+  # ---------- 可选：Redis（语义缓存 / 限流 / 任务队列 broker）----------
+  redis:
+    image: redis:7-alpine
+    container_name: company-kb-redis
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes", "--maxmemory", "512mb", "--maxmemory-policy", "allkeys-lru"]
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    networks:
+      - kb-net
+
+  # ---------- 可选：Milvus Standalone（向量库升级路径）----------
+  # 用 profile 隔离：默认不启动，执行 docker compose --profile milvus up 才起
+  etcd:
+    image: quay.io/coreos/etcd:v3.5.16
+    container_name: company-kb-etcd
+    profiles: ["milvus"]
+    environment:
+      - ETCD_AUTO_COMPACTION_MODE=revision
+      - ETCD_AUTO_COMPACTION_RETENTION=1000
+      - ETCD_QUOTA_BACKEND_BYTES=4294967296
+      - ETCD_SNAPSHOT_COUNT=50000
+    command: etcd -advertise-client-urls=http://etcd:2379 -listen-client-urls http://0.0.0.0:2379 --data-dir /etcd
+    volumes:
+      - etcd-data:/etcd
+    networks:
+      - kb-net
+
+  minio:
+    image: minio/minio:RELEASE.2024-12-18T13-15-44Z
+    container_name: company-kb-minio
+    profiles: ["milvus"]
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    command: minio server /minio_data --console-address ":9001"
+    volumes:
+      - minio-data:/minio_data
+    networks:
+      - kb-net
+
+  milvus:
+    image: milvusdb/milvus:v2.5.4
+    container_name: company-kb-milvus
+    profiles: ["milvus"]
+    command: ["milvus", "run", "standalone"]
+    environment:
+      ETCD_ENDPOINTS: etcd:2379
+      MINIO_ADDRESS: minio:9000
+    volumes:
+      - milvus-data:/var/lib/milvus
+    ports:
+      - "19530:19530"      # gRPC（应用连接用）
+      - "9091:9091"        # 指标
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9091/healthz"]
+      interval: 30s
+      start_period: 90s
+      timeout: 20s
+      retries: 5
+    depends_on:
+      - etcd
+      - minio
+    networks:
+      - kb-net
+
+volumes:
+  redis-data:
+  etcd-data:
+  minio-data:
+  milvus-data:
+
+networks:
+  kb-net:
+    driver: bridge

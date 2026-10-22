@@ -1,0 +1,33 @@
+# ---- Secrets & local config (never commit) ----
+.env
+.env.local
+*.key
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ---- Local runtime data (vector db / sqlite / uploads / generated corpus / logs) ----
+# NOTE: data/eval_*.json ARE committed on purpose -- they are the raw evidence
+# behind the metrics in README.md, so reviewers can verify the numbers.
+data/chroma/
+data/sqlite/
+data/uploads/
+data/_seed_src/
+data/corpus/
+data/_seed_annual_leave.txt
+logs/
+*.log
+
+# ---- IDE / OS ----
+.idea/
+.vscode/
+*.swp
+Thumbs.db
+desktop.ini

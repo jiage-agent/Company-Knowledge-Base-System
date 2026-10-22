@@ -1,0 +1,449 @@
+{
+  "_meta": {
+    "description": "从合成语料自动生成的评测题，ground truth 由唯一特征串保证",
+    "count": 40,
+    "note": "这批题的特征串在向量空间区分度低、在字面匹配上区分度高，用于验证 BM25 的增量价值"
+  },
+  "items": [
+    {
+      "question": "《研发中心绩效考核与晋升办法》第四章 申诉与附则里，APPEAL-年份-四位流水号这种编号的格式要求是什么？（第十一条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "APPEAL-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "rd_15881_绩效考核与晋升办法.txt",
+      "_token_kind": "编号格式",
+      "_clause": "第十一条 员工对考核或晋升结果有异议的，应在结果公示或通知送达之日起5个工作日内，向人力资源部提交书面申诉，申诉表编号格式为RD-APPEAL-年份-四位流水号。"
+    },
+    {
+      "question": "《客户成功部差旅与住宿报销标准》第四章 报销时限与流程里，CSBX-年份-四位流水号这种编号的格式要求是什么？（第十条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "CSBX-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "cs_12495_差旅与住宿报销标准.txt",
+      "_token_kind": "编号格式",
+      "_clause": "报销单编号格式为：CSBX-年份-四位流水号，例如CSBX-2025-0132。"
+    },
+    {
+      "question": "《客户成功部岗位职级与薪酬结构说明》第二章 薪酬带宽与构成里，CSFY-年份-四位流水号这种编号的格式要求是什么？（第六条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "CSFY-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "cs_44361_岗位职级与薪酬结构说明.txt",
+      "_token_kind": "编号格式",
+      "_clause": "员工每月可报销客户现场拜访交通费上限为1500元，超标部分须在费用单编号“CSFY-年份-四位流水号”中单独说明。"
+    },
+    {
+      "question": "《数据平台部设备与资产领用制度》第三章 使用、折旧与维护里，DPWX-年份-四位流水号这种编号的格式要求是什么？（第十条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "DPWX-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "data_21615_设备与资产领用制度.txt",
+      "_token_kind": "编号格式",
+      "_clause": "第十条 设备发生故障须在2小时内通过部门工单系统报修，工单编号格式为“DPWX-年份-四位流水号”；因人为损坏导致维修费用超过1000元的，领用人承担30%费用。"
+    },
+    {
+      "question": "《数据平台部加班与调休管理办法》第二章 加班申请与认定里，JBSJ-年份-四位流水号这种编号的格式要求是什么？（第四条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "JBSJ-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "data_52777_加班与调休管理办法.txt",
+      "_token_kind": "编号格式",
+      "_clause": "第四条 计划性加班须提前1个工作日通过OA提交《加班申请单》，申请单编号格式为 JBSJ-年份-四位流水号（如 JBSJ-2025-0137），经直属主管审批后生效，未提前申请的不予认定。"
+    },
+    {
+      "question": "《研发项目立项与验收流程》第二章 立项条件与审批里，RDLX-年份-四位流水号这种编号的格式要求是什么？（第五条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "RDLX-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "hr_77068_研发项目立项与验收流程.txt",
+      "_token_kind": "编号格式",
+      "_clause": "立项申请书编号统一采用“RDLX-年份-四位流水号”格式，例如RDLX-2024-0001，流水号每年1月1日从0001重新起算，由人力资源部统一赋号并登记台账。"
+    },
+    {
+      "question": "《产品部加班与调休管理办法》第二章 加班申请与审批流程里，CPJB-年份-四位流水号这种编号的格式要求是什么？（第四条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "CPJB-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "product_09701_加班与调休管理办法.txt",
+      "_token_kind": "编号格式",
+      "_clause": "第四条 员工须在加班开始前至少4小时通过OA系统提交《加班申请单》，申请单编号格式为 CPJB-年份-四位流水号，例如 CPJB-2025-0137。"
+    },
+    {
+      "question": "《供应链中心数据安全与权限管理规范》第二章 访问权限申请与审批里，SCDA-年份-四位流水号这种编号的格式要求是什么？（第四条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "SCDA-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "scm_45159_数据安全与权限管理规范.txt",
+      "_token_kind": "编号格式",
+      "_clause": "第四条 员工申请数据访问权限，须填写《数据权限申请单》，编号格式为“SCDA-年份-四位流水号”，例如SCDA-2025-0037。"
+    },
+    {
+      "question": "《培训与认证管理办法》第四章 认证管理与奖励里，CERT-年份-四位流水号这种编号的格式要求是什么？（第十条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "CERT-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "scm_91371_培训与认证管理办法.txt",
+      "_token_kind": "编号格式",
+      "_clause": "第十条 认证报名统一编号：SC-CERT-年份-四位流水号。"
+    },
+    {
+      "question": "《研发项目立项与验收流程》第一章 立项申请与审批里，CSR-年份-四位流水号这种编号的格式要求是什么？（第一条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "CSR-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "cs_04747_研发项目立项与验收流程.txt",
+      "_token_kind": "编号格式",
+      "_clause": "第一条 客户成功部研发项目立项须同时满足以下条件：预估研发投入不低于人民币5万元且不超过80万元；项目须直接服务于客户续约、增购或满意度提升目标，并明确对应至少3家存量客户或1个客户细分群体；申请人须提交《研发项目立项申请单》，申请单编号格式为CSR-年份-四位流水号（如CSR-2025-0042），由客户成功部统一归口登记。"
+    },
+    {
+      "question": "《客户投诉处理流程》第一章 总则与适用范围里，ESC-年份-四位流水号这种编号的格式要求是什么？（第三条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "ESC-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "cs_46245_客户投诉处理流程.txt",
+      "_token_kind": "编号格式",
+      "_clause": "第三条 投诉工单编号统一采用“CS-年份-四位流水号”格式，例如CS-2025-0137；跨部门升级单编号采用“CS-ESC-年份-四位流水号”格式，例如CS-ESC-2025-0042。"
+    },
+    {
+      "question": "《数据安全与权限管理规范》第一章 总则与数据分级里，CSD-年份-四位流水号这种编号的格式要求是什么？（第三条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "CSD-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "cs_79584_数据安全与权限管理规范.txt",
+      "_token_kind": "编号格式",
+      "_clause": "所有数据访问申请单统一采用“CSD-年份-四位流水号”格式，例如CSD-2025-0137；数据外发审批单采用“OUT-年份-四位流水号”格式。"
+    },
+    {
+      "question": "《供应商准入与评估规范》第三章 评估指标与合同约束里，DPS-年份-四位流水号这种编号的格式要求是什么？（第八条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "DPS-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "data_07941_供应商准入与评估规范.txt",
+      "_token_kind": "编号格式",
+      "_clause": "供应商合同编号统一采用“DPS-年份-四位流水号”格式；合同须约定质保金比例为合同金额的10%，质保期不少于12个月，尾款在质保期满且无重大缺陷后30日内支付。"
+    },
+    {
+      "question": "《数据平台部差旅补贴与市内交通细则》第一章 总则与适用范围里，DTP-年份-四位流水号这种编号的格式要求是什么？（第二条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "DTP-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "data_30119_差旅补贴与市内交通细则.txt",
+      "_token_kind": "编号格式",
+      "_clause": "部门内所有差旅申请单统一采用“DTP-年份-四位流水号”格式编号，如DTP-2025-0037；市内交通报销单采用“DTC-年份-四位流水号”格式编号，如DTC-2025-0112。"
+    },
+    {
+      "question": "《供应商准入与评估规范》第三章 评估指标与周期里，EVL-年份-四位流水号这种编号的格式要求是什么？（第九条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "EVL-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "data_59534_供应商准入与评估规范.txt",
+      "_token_kind": "编号格式",
+      "_clause": "第九条 评估工单编号采用“DSP-EVL-年份-四位流水号”格式，评估结果须在季度结束后10个工作日内录入供应商台账，台账保存期限不少于5年。"
+    },
+    {
+      "question": "《供应商准入与评估规范》第一章 总则与适用范围里，VEN-年份-四位流水号这种编号的格式要求是什么？（第3条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "VEN-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "hr_39605_供应商准入与评估规范.txt",
+      "_token_kind": "编号格式",
+      "_clause": "第3条 供应商准入申请单统一编号格式为“HR-VEN-年份-四位流水号”，例如HR-VEN-2024-0001，由人力资源部供应商管理员按提交顺序连续编号，编号不得跳号、重号。"
+    },
+    {
+      "question": "《供应商准入与评估规范》第一章 总则与适用范围里，HRS-年份-四位流水号这种编号的格式要求是什么？（第3条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "HRS-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "hr_72646_供应商准入与评估规范.txt",
+      "_token_kind": "编号格式",
+      "_clause": "第3条 供应商准入申请单编号统一采用“HRS-年份-四位流水号”格式，例如HRS-2025-0001，由人力资源部供应商管理员按提交顺序连续编号，编号一经生成不得重复使用或跳号。"
+    },
+    {
+      "question": "《信息安全事件响应预案》第二章 上报时限与编号规则里，FWB-年份-四位流水号这种编号的格式要求是什么？（第四条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "FWB-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "legal_85079_信息安全事件响应预案.txt",
+      "_token_kind": "编号格式",
+      "_clause": "报告单编号格式统一为：FWB-年份-四位流水号，例如FWB-2024-0007，流水号按年度自0001起连续编排，不得跳号、重号。"
+    },
+    {
+      "question": "《市场部信息安全事件响应预案》第二章 上报时限与编号规则里，INC-年份-四位流水号这种编号的格式要求是什么？（第四条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "INC-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "mkt_15943_信息安全事件响应预案.txt",
+      "_token_kind": "编号格式",
+      "_clause": "第四条 所有信息安全事件统一使用工单编号，格式为MKT-INC-年份-四位流水号，例如MKT-INC-2024-0007，流水号每年1月1日从0001重新起算。"
+    },
+    {
+      "question": "《研发项目立项与验收流程》第四章 文档归档与变更里，ARC-年份-四位流水号这种编号的格式要求是什么？（第八条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "ARC-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "product_28042_研发项目立项与验收流程.txt",
+      "_token_kind": "编号格式",
+      "_clause": "第八条 验收通过后5个工作日内，须将立项申请单、里程碑记录、测试报告、验收结论等12类文档归档至产品部知识库，归档编号格式为“ARC-年份-四位流水号”。"
+    },
+    {
+      "question": "《产品部固定资产盘点规程》第三章 差异处理里，CHG-年份-四位流水号这种编号的格式要求是什么？（第九条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "CHG-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "product_64281_固定资产盘点规程.txt",
+      "_token_kind": "编号格式",
+      "_clause": "此类差异须在盘点结束后7个工作日内完成系统信息变更，变更申请单编号格式为PD-CHG-年份-四位流水号，逾期未变更的每次扣减责任人当月绩效考核分2分。"
+    },
+    {
+      "question": "《岗位职级与薪酬结构说明》第四章 申请与编号规范里，ADJ-年份-四位流水号这种编号的格式要求是什么？（第九条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "ADJ-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "qa_44441_岗位职级与薪酬结构说明.txt",
+      "_token_kind": "编号格式",
+      "_clause": "第九条 职级晋升申请单编号格式为QA-PROMO-年份-三位流水号，例如QA-PROMO-2025-001；调薪申请单编号格式为QA-ADJ-年份-四位流水号，例如QA-ADJ-2025-0001。"
+    },
+    {
+      "question": "《数据安全与权限管理规范》第三章 数据外发与传输管控里，NDA-年份-四位流水号这种编号的格式要求是什么？（第8条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "NDA-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "rd_70104_数据安全与权限管理规范.txt",
+      "_token_kind": "编号格式",
+      "_clause": "第8条 对外合作方接收L3级数据前须签署保密协议，协议编号格式为NDA-年份-四位流水号（如NDA-2025-0042），协议有效期不超过2年。"
+    },
+    {
+      "question": "《供应商准入与评估规范》第一章 总则与适用范围里，RCS-年份-四位流水号这种编号的格式要求是什么？（第三条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "RCS-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "rd_76516_供应商准入与评估规范.txt",
+      "_token_kind": "编号格式",
+      "_clause": "第三条 供应商准入申请单编号统一采用“RCS-年份-四位流水号”格式，例如RCS-2025-0037；同一供应商再次申请新增品类时，沿用原编号并追加两位品类码，如RCS-2025-0037-02。"
+    },
+    {
+      "question": "《供应链中心数据安全与权限管理规范》第四章 违规处理与审计里，AUD-年份-四位流水号这种编号的格式要求是什么？（第十一条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "AUD-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "scm_30957_数据安全与权限管理规范.txt",
+      "_token_kind": "编号格式",
+      "_clause": "审计报告编号格式为SCC-AUD-年份-四位流水号，保存期限不少于5年。"
+    },
+    {
+      "question": "《客户成功部信息安全事件响应预案》第三章 处置流程与客户沟通里，BC-年份-四位流水号这种编号的格式要求是什么？（第九条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "BC-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "cs_32452_信息安全事件响应预案.txt",
+      "_token_kind": "编号格式",
+      "_clause": "补偿协议编号格式为“BC-年份-四位流水号”。"
+    },
+    {
+      "question": "《客户成功部绩效考核与晋升办法》第一章 总则与考核周期里，QR-年份-四位流水号这种编号的格式要求是什么？（第三条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "QR-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "cs_34658_绩效考核与晋升办法.txt",
+      "_token_kind": "编号格式",
+      "_clause": "第三条 员工须在每季度末月 25 日前提交《客户成功季度复盘表》，编号格式为 CS-QR-年份-四位流水号（如 CS-QR-2025-0037），逾期未提交者当季过程指标计 0 分。"
+    },
+    {
+      "question": "《# 供应商准入与评估规范》第一章 总则与适用范围里，VD-年份-四位流水号这种编号的格式要求是什么？（第二条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "VD-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "cs_99600_供应商准入与评估规范.txt",
+      "_token_kind": "编号格式",
+      "_clause": "第二条 客户成功部设供应商管理岗，负责供应商档案维护与评估组织；供应商准入申请须由需求提出人填写《供应商准入申请单》，申请单编号格式为CSS-VD-年份-四位流水号（如CSS-VD-2024-0031），编号由供应商管理岗按提交顺序统一分配，不得跳号或重号。"
+    },
+    {
+      "question": "《研发项目立项与验收流程》第二章 评审与里程碑里，BG-年份-四位流水号这种编号的格式要求是什么？（第6条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "BG-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "data_33610_研发项目立项与验收流程.txt",
+      "_token_kind": "编号格式",
+      "_clause": "第6条 项目发生范围变更且影响工时超过原预算20%的，须在5个工作日内提交变更申请，变更申请单编号采用“DP-BG-年份-四位流水号”，经评审小组半数以上同意后生效，每个项目变更次数不得超过2次。"
+    },
+    {
+      "question": "《数据安全与权限管理规范》第二章 访问审批与权限授予里，DC-年份-四位流水号这种编号的格式要求是什么？（第5条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "DC-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "data_77628_数据安全与权限管理规范.txt",
+      "_token_kind": "编号格式",
+      "_clause": "第5条 权限申请单编号统一采用“DA-年份-四位流水号”格式，例如DA-2025-0137；权限变更工单编号采用“DC-年份-四位流水号”格式。"
+    },
+    {
+      "question": "《数据平台部绩效考核与晋升办法》第一章 考核周期与组织里，SK-年份-四位流水号这种编号的格式要求是什么？（第三条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "SK-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "data_79789_绩效考核与晋升办法.txt",
+      "_token_kind": "编号格式",
+      "_clause": "第三条 员工对考核结果有异议的，应在结果公布后5个工作日内提交书面申诉，申诉材料须使用统一编号格式：SK-年份-四位流水号（如SK-2025-0037），考核小组须在收到申诉后10个工作日内出具复核结论。"
+    },
+    {
+      "question": "《# 数据平台部加班与调休管理办法》第二章 加班申请与审批流程里，GW-年份-四位流水号这种编号的格式要求是什么？（第五条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "GW-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "data_83965_加班与调休管理办法.txt",
+      "_token_kind": "编号格式",
+      "_clause": "第五条 应急性加班须在事件处置开始后2小时内通过企业微信向直属主管报备，并于事后24小时内在OA系统补录申请，补录单须关联对应故障工单编号（格式为GW-年份-四位流水号），逾期未补录的不予认定。"
+    },
+    {
+      "question": "《合同评审与用印管理规范》第一章 总则与适用范围里，HY-年份-四位流水号这种编号的格式要求是什么？（第三条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "HY-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "data_91814_合同评审与用印管理规范.txt",
+      "_token_kind": "编号格式",
+      "_clause": "合同申请单编号格式为 DP-HY-年份-四位流水号，例如 DP-HY-2024-0001；用印申请编号格式为 DP-YJ-年份-四位流水号，流水号自每年1月1日起重新计数。"
+    },
+    {
+      "question": "《财务部信息安全事件响应预案》第一章 总则与事件分级里，AQ-年份-四位流水号这种编号的格式要求是什么？（第三条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "AQ-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "finance_15822_信息安全事件响应预案.txt",
+      "_token_kind": "编号格式",
+      "_clause": "第三条 所有事件统一使用工单编号，格式为CW-AQ-年份-四位流水号，例如CW-AQ-2025-0001，流水号每年1月1日从0001重新起算，编号由应急小组组长在接报后30分钟内分配。"
+    },
+    {
+      "question": "《岗位职级与薪酬结构说明》第四章 发放、核算与保密里，XC-年份-四位流水号这种编号的格式要求是什么？（第十一条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "XC-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "finance_56023_岗位职级与薪酬结构说明.txt",
+      "_token_kind": "编号格式",
+      "_clause": "第十一条 薪酬数据属保密信息，知悉范围限定为财务总监、人力资源薪酬专员及本人；薪酬明细表编号格式为“CW-XC-年份-四位流水号”，保存期限不少于10年。"
+    },
+    {
+      "question": "《财务部培训与认证管理办法》第二章 费用承担与报销里，CE-年份-四位流水号这种编号的格式要求是什么？（第六条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "CE-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "finance_71010_培训与认证管理办法.txt",
+      "_token_kind": "编号格式",
+      "_clause": "报销申请须在证书签发日起30日内提交，编号格式为CW-CE-年份-四位流水号。"
+    },
+    {
+      "question": "《差旅补贴与市内交通细则》第一章 总则与适用范围里，HR-年份-四位流水号这种编号的格式要求是什么？（第二条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "HR-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "hr_00414_差旅补贴与市内交通细则.txt",
+      "_token_kind": "编号格式",
+      "_clause": "员工出差前须填写《出差申请单》，申请单编号格式统一为“HR-年份-四位流水号”，如HR-2024-0137，由人力资源部行政专员按提交顺序连续编号，编号不得跳号、重号。"
+    },
+    {
+      "question": "《合同评审与用印管理规范》第一章 总则与适用范围里，SE-年份-四位流水号这种编号的格式要求是什么？（第3条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "SE-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "hr_44650_合同评审与用印管理规范.txt",
+      "_token_kind": "编号格式",
+      "_clause": "第3条 合同评审申请单统一编号，格式为“HR-CR-年份-四位流水号”，例如HR-CR-2024-0037；用印工单编号格式为“HR-SE-年份-四位流水号”。"
+    },
+    {
+      "question": "《绩效考核与晋升办法》第二章 考核流程与申诉里，KS-年份-四位流水号这种编号的格式要求是什么？（第六条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "KS-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "hr_63924_绩效考核与晋升办法.txt",
+      "_token_kind": "编号格式",
+      "_clause": "第六条 考核申诉单编号格式为“KS-年份-四位流水号”，如KS-2024-0037，由人力资源部按提交顺序统一编号归档，保存期限不少于3年。"
+    },
+    {
+      "question": "《固定资产盘点规程》第一章 总则与盘点周期里，FA-年份-四位流水号这种编号的格式要求是什么？（第三条）",
+      "intent": "factual",
+      "gold_keywords": [
+        "FA-年份-四位流水号"
+      ],
+      "expect_refusal": false,
+      "_source_file": "hr_92835_固定资产盘点规程.txt",
+      "_token_kind": "编号格式",
+      "_clause": "第三条 盘点编号统一采用“HR-FA-年份-四位流水号”格式，如HR-FA-2025-0001，流水号按盘点任务创建顺序自0001起连续编排，不得跳号或重复使用。"
+    }
+  ]
+}

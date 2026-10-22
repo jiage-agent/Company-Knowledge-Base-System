@@ -1,0 +1,2079 @@
+{
+  "run_id": "eval-1792463765",
+  "dataset_size": 40,
+  "top_k": 5,
+  "metrics": [
+    {
+      "mode": "dense_only",
+      "mode_desc": "仅向量检索",
+      "questions": 40,
+      "recall_at_k": 0.525,
+      "mrr": 0.4163,
+      "ndcg": 0.4432,
+      "hit_rate": 0.525,
+      "avg_latency_ms": 332.7
+    },
+    {
+      "mode": "dense_bm25",
+      "mode_desc": "向量 + BM25 + RRF 融合",
+      "questions": 40,
+      "recall_at_k": 0.5,
+      "mrr": 0.3917,
+      "ndcg": 0.4189,
+      "hit_rate": 0.5,
+      "avg_latency_ms": 405
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "mode_desc": "向量 + BM25 + RRF + 重排（完整链路）",
+      "questions": 40,
+      "recall_at_k": 0.725,
+      "mrr": 0.6583,
+      "ndcg": 0.6748,
+      "hit_rate": 0.725,
+      "avg_latency_ms": 1413.9
+    }
+  ],
+  "detail": [
+    {
+      "mode": "dense_only",
+      "question": "《研发中心绩效考核与晋升办法》第四章 申诉与附则里，APPEAL-年份-四位流水号这种编号的格式要求是什么？（第十一条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1850,
+      "expect_refusal": false,
+      "top_titles": [
+        "研发中心绩效考核与晋升办法",
+        "产品部绩效考核与晋升办法",
+        "法务部绩效考核与晋升办法"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《客户成功部差旅与住宿报销标准》第四章 报销时限与流程里，CSBX-年份-四位流水号这种编号的格式要求是什么？（第十条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 0,
+      "latency_ms": 179,
+      "expect_refusal": false,
+      "top_titles": [
+        "客户成功部差旅与住宿报销标准",
+        "研发中心差旅补贴与市内交通细则",
+        "财务部差旅与住宿报销标准"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《客户成功部岗位职级与薪酬结构说明》第二章 薪酬带宽与构成里，CSFY-年份-四位流水号这种编号的格式要求是什么？（第六条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 0,
+      "latency_ms": 153,
+      "expect_refusal": false,
+      "top_titles": [
+        "客户成功部岗位职级与薪酬结构说明",
+        "客户成功部岗位职级与薪酬结构说明",
+        "客户成功部岗位职级与薪酬结构说明"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《数据平台部设备与资产领用制度》第三章 使用、折旧与维护里，DPWX-年份-四位流水号这种编号的格式要求是什么？（第十条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 589,
+      "expect_refusal": false,
+      "top_titles": [
+        "数据平台部设备与资产领用制度",
+        "数据平台部设备与资产领用制度",
+        "财务部设备与资产领用制度"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《数据平台部加班与调休管理办法》第二章 加班申请与认定里，JBSJ-年份-四位流水号这种编号的格式要求是什么？（第四条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 202,
+      "expect_refusal": false,
+      "top_titles": [
+        "客户成功部加班与调休管理办法",
+        "财务部加班与调休管理办法",
+        "法务部加班与调休管理办法"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《研发项目立项与验收流程》第二章 立项条件与审批里，RDLX-年份-四位流水号这种编号的格式要求是什么？（第五条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 169,
+      "expect_refusal": false,
+      "top_titles": [
+        "人力资源部研发项目立项与验收流程",
+        "研发中心研发项目立项与验收流程",
+        "研发中心研发项目立项与验收流程"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《产品部加班与调休管理办法》第二章 加班申请与审批流程里，CPJB-年份-四位流水号这种编号的格式要求是什么？（第四条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 0.5,
+      "ndcg": 0.631,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 183,
+      "expect_refusal": false,
+      "top_titles": [
+        "财务部加班与调休管理办法",
+        "产品部加班与调休管理办法",
+        "客户成功部加班与调休管理办法"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《供应链中心数据安全与权限管理规范》第二章 访问权限申请与审批里，SCDA-年份-四位流水号这种编号的格式要求是什么？（第四条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 201,
+      "expect_refusal": false,
+      "top_titles": [
+        "供应链中心数据安全与权限管理规范",
+        "客户成功部数据安全与权限管理规范",
+        "供应链中心数据安全与权限管理规范"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《培训与认证管理办法》第四章 认证管理与奖励里，CERT-年份-四位流水号这种编号的格式要求是什么？（第十条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 0.25,
+      "ndcg": 0.431,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 162,
+      "expect_refusal": false,
+      "top_titles": [
+        "产品部培训与认证管理办法",
+        "客户成功部培训与认证管理办法",
+        "市场部培训与认证管理办法"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《研发项目立项与验收流程》第一章 立项申请与审批里，CSR-年份-四位流水号这种编号的格式要求是什么？（第一条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 167,
+      "expect_refusal": false,
+      "top_titles": [
+        "客户成功部研发项目立项与验收流程",
+        "人力资源部研发项目立项与验收流程",
+        "研发中心研发项目立项与验收流程"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《客户投诉处理流程》第一章 总则与适用范围里，ESC-年份-四位流水号这种编号的格式要求是什么？（第三条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 912,
+      "expect_refusal": false,
+      "top_titles": [
+        "客户成功部客户投诉处理流程",
+        "供应链中心客户投诉处理流程",
+        "质量保障部客户投诉处理流程"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《数据安全与权限管理规范》第一章 总则与数据分级里，CSD-年份-四位流水号这种编号的格式要求是什么？（第三条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 187,
+      "expect_refusal": false,
+      "top_titles": [
+        "客户成功部数据安全与权限管理规范",
+        "供应链中心数据安全与权限管理规范",
+        "市场部数据安全与权限管理规范"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《供应商准入与评估规范》第三章 评估指标与合同约束里，DPS-年份-四位流水号这种编号的格式要求是什么？（第八条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 167,
+      "expect_refusal": false,
+      "top_titles": [
+        "供应链中心供应商准入与评估规范",
+        "数据平台部供应商准入与评估规范",
+        "质量保障部供应商准入与评估规范"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《数据平台部差旅补贴与市内交通细则》第一章 总则与适用范围里，DTP-年份-四位流水号这种编号的格式要求是什么？（第二条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 168,
+      "expect_refusal": false,
+      "top_titles": [
+        "数据平台部差旅补贴与市内交通细则",
+        "数据平台部差旅补贴与市内交通细则",
+        "数据平台部差旅与住宿报销标准"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《供应商准入与评估规范》第三章 评估指标与周期里，EVL-年份-四位流水号这种编号的格式要求是什么？（第九条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 175,
+      "expect_refusal": false,
+      "top_titles": [
+        "供应链中心供应商准入与评估规范",
+        "法务部供应商准入与评估规范",
+        "质量保障部供应商准入与评估规范"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《供应商准入与评估规范》第一章 总则与适用范围里，VEN-年份-四位流水号这种编号的格式要求是什么？（第3条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 186,
+      "expect_refusal": false,
+      "top_titles": [
+        "供应链中心供应商准入与评估规范",
+        "供应链中心供应商准入与评估规范",
+        "法务部供应商准入与评估规范"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《供应商准入与评估规范》第一章 总则与适用范围里，HRS-年份-四位流水号这种编号的格式要求是什么？（第3条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 182,
+      "expect_refusal": false,
+      "top_titles": [
+        "人力资源部供应商准入与评估规范",
+        "供应链中心供应商准入与评估规范",
+        "供应链中心供应商准入与评估规范"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《信息安全事件响应预案》第二章 上报时限与编号规则里，FWB-年份-四位流水号这种编号的格式要求是什么？（第四条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 191,
+      "expect_refusal": false,
+      "top_titles": [
+        "法务部信息安全事件响应预案",
+        "市场部信息安全事件响应预案",
+        "市场部信息安全事件响应预案"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《市场部信息安全事件响应预案》第二章 上报时限与编号规则里，INC-年份-四位流水号这种编号的格式要求是什么？（第四条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 174,
+      "expect_refusal": false,
+      "top_titles": [
+        "市场部信息安全事件响应预案",
+        "市场部信息安全事件响应预案",
+        "客户成功部信息安全事件响应预案"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《研发项目立项与验收流程》第四章 文档归档与变更里，ARC-年份-四位流水号这种编号的格式要求是什么？（第八条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 156,
+      "expect_refusal": false,
+      "top_titles": [
+        "产品部研发项目立项与验收流程",
+        "供应链中心研发项目立项与验收流程",
+        "客户成功部研发项目立项与验收流程"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《产品部固定资产盘点规程》第三章 差异处理里，CHG-年份-四位流水号这种编号的格式要求是什么？（第九条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1169,
+      "expect_refusal": false,
+      "top_titles": [
+        "产品部固定资产盘点规程",
+        "财务部固定资产盘点规程",
+        "产品部固定资产盘点规程"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《岗位职级与薪酬结构说明》第四章 申请与编号规范里，ADJ-年份-四位流水号这种编号的格式要求是什么？（第九条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 164,
+      "expect_refusal": false,
+      "top_titles": [
+        "质量保障部岗位职级与薪酬结构说明",
+        "客户成功部岗位职级与薪酬结构说明",
+        "人力资源部采购与付款审批流程"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《数据安全与权限管理规范》第三章 数据外发与传输管控里，NDA-年份-四位流水号这种编号的格式要求是什么？（第8条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 0.5,
+      "ndcg": 0.631,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 166,
+      "expect_refusal": false,
+      "top_titles": [
+        "客户成功部数据安全与权限管理规范",
+        "研发中心数据安全与权限管理规范",
+        "质量保障部数据安全与权限管理规范"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《供应商准入与评估规范》第一章 总则与适用范围里，RCS-年份-四位流水号这种编号的格式要求是什么？（第三条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 0.5,
+      "ndcg": 0.631,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 340,
+      "expect_refusal": false,
+      "top_titles": [
+        "供应链中心供应商准入与评估规范",
+        "研发中心供应商准入与评估规范",
+        "研发中心供应商准入与评估规范"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《供应链中心数据安全与权限管理规范》第四章 违规处理与审计里，AUD-年份-四位流水号这种编号的格式要求是什么？（第十一条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 0,
+      "latency_ms": 202,
+      "expect_refusal": false,
+      "top_titles": [
+        "供应链中心数据安全与权限管理规范",
+        "供应链中心供应商准入与评估规范",
+        "客户成功部数据安全与权限管理规范"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《客户成功部信息安全事件响应预案》第三章 处置流程与客户沟通里，BC-年份-四位流水号这种编号的格式要求是什么？（第九条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 0,
+      "latency_ms": 186,
+      "expect_refusal": false,
+      "top_titles": [
+        "客户成功部信息安全事件响应预案",
+        "市场部信息安全事件响应预案",
+        "质量保障部信息安全事件响应预案"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《客户成功部绩效考核与晋升办法》第一章 总则与考核周期里，QR-年份-四位流水号这种编号的格式要求是什么？（第三条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 627,
+      "expect_refusal": false,
+      "top_titles": [
+        "供应链中心绩效考核与晋升办法",
+        "客户成功部绩效考核与晋升办法",
+        "客户成功部绩效考核与晋升办法"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《# 供应商准入与评估规范》第一章 总则与适用范围里，VD-年份-四位流水号这种编号的格式要求是什么？（第二条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 206,
+      "expect_refusal": false,
+      "top_titles": [
+        "供应链中心供应商准入与评估规范",
+        "法务部供应商准入与评估规范",
+        "质量保障部供应商准入与评估规范"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《研发项目立项与验收流程》第二章 评审与里程碑里，BG-年份-四位流水号这种编号的格式要求是什么？（第6条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 189,
+      "expect_refusal": false,
+      "top_titles": [
+        "产品部研发项目立项与验收流程",
+        "数据平台部研发项目立项与验收流程",
+        "法务部研发项目立项与验收流程"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《数据安全与权限管理规范》第二章 访问审批与权限授予里，DC-年份-四位流水号这种编号的格式要求是什么？（第5条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 0.5,
+      "ndcg": 0.631,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 247,
+      "expect_refusal": false,
+      "top_titles": [
+        "客户成功部数据安全与权限管理规范",
+        "数据平台部数据安全与权限管理规范",
+        "产品部数据安全与权限管理规范"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《数据平台部绩效考核与晋升办法》第一章 考核周期与组织里，SK-年份-四位流水号这种编号的格式要求是什么？（第三条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 0.2,
+      "ndcg": 0.387,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 244,
+      "expect_refusal": false,
+      "top_titles": [
+        "供应链中心绩效考核与晋升办法",
+        "数据平台部绩效考核与晋升办法",
+        "数据平台部绩效考核与晋升办法"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《# 数据平台部加班与调休管理办法》第二章 加班申请与审批流程里，GW-年份-四位流水号这种编号的格式要求是什么？（第五条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 195,
+      "expect_refusal": false,
+      "top_titles": [
+        "财务部加班与调休管理办法",
+        "客户成功部加班与调休管理办法",
+        "供应链中心加班与调休管理办法"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《合同评审与用印管理规范》第一章 总则与适用范围里，HY-年份-四位流水号这种编号的格式要求是什么？（第三条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 174,
+      "expect_refusal": false,
+      "top_titles": [
+        "产品部合同评审与用印管理规范",
+        "人力资源部合同评审与用印管理规范",
+        "财务部合同评审与用印管理规范"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《财务部信息安全事件响应预案》第一章 总则与事件分级里，AQ-年份-四位流水号这种编号的格式要求是什么？（第三条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 856,
+      "expect_refusal": false,
+      "top_titles": [
+        "质量保障部信息安全事件响应预案",
+        "财务部信息安全事件响应预案",
+        "财务部信息安全事件响应预案"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《岗位职级与薪酬结构说明》第四章 发放、核算与保密里，XC-年份-四位流水号这种编号的格式要求是什么？（第十一条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 0.2,
+      "ndcg": 0.387,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 187,
+      "expect_refusal": false,
+      "top_titles": [
+        "客户成功部岗位职级与薪酬结构说明",
+        "人力资源部岗位职级与薪酬结构说明",
+        "供应链中心岗位职级与薪酬结构说明"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《财务部培训与认证管理办法》第二章 费用承担与报销里，CE-年份-四位流水号这种编号的格式要求是什么？（第六条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 0,
+      "latency_ms": 185,
+      "expect_refusal": false,
+      "top_titles": [
+        "市场部培训与认证管理办法",
+        "财务部采购与付款审批流程",
+        "客户成功部培训与认证管理办法"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《差旅补贴与市内交通细则》第一章 总则与适用范围里，HR-年份-四位流水号这种编号的格式要求是什么？（第二条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1072,
+      "expect_refusal": false,
+      "top_titles": [
+        "人力资源部差旅补贴与市内交通细则",
+        "数据平台部差旅补贴与市内交通细则",
+        "质量保障部差旅补贴与市内交通细则"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《合同评审与用印管理规范》第一章 总则与适用范围里，SE-年份-四位流水号这种编号的格式要求是什么？（第3条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 174,
+      "expect_refusal": false,
+      "top_titles": [
+        "产品部合同评审与用印管理规范",
+        "财务部合同评审与用印管理规范",
+        "法务部合同评审与用印管理规范"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《绩效考核与晋升办法》第二章 考核流程与申诉里，KS-年份-四位流水号这种编号的格式要求是什么？（第六条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 164,
+      "expect_refusal": false,
+      "top_titles": [
+        "人力资源部绩效考核与晋升办法",
+        "法务部绩效考核与晋升办法",
+        "供应链中心绩效考核与晋升办法"
+      ]
+    },
+    {
+      "mode": "dense_only",
+      "question": "《固定资产盘点规程》第一章 总则与盘点周期里，FA-年份-四位流水号这种编号的格式要求是什么？（第三条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 207,
+      "expect_refusal": false,
+      "top_titles": [
+        "产品部固定资产盘点规程",
+        "财务部固定资产盘点规程",
+        "财务部固定资产盘点规程"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《研发中心绩效考核与晋升办法》第四章 申诉与附则里，APPEAL-年份-四位流水号这种编号的格式要求是什么？（第十一条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1988,
+      "expect_refusal": false,
+      "top_titles": [
+        "研发中心绩效考核与晋升办法",
+        "法务部绩效考核与晋升办法",
+        "产品部绩效考核与晋升办法"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《客户成功部差旅与住宿报销标准》第四章 报销时限与流程里，CSBX-年份-四位流水号这种编号的格式要求是什么？（第十条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 0,
+      "latency_ms": 296,
+      "expect_refusal": false,
+      "top_titles": [
+        "客户成功部差旅与住宿报销标准",
+        "客户成功部差旅与住宿报销标准",
+        "财务部差旅与住宿报销标准"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《客户成功部岗位职级与薪酬结构说明》第二章 薪酬带宽与构成里，CSFY-年份-四位流水号这种编号的格式要求是什么？（第六条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 0,
+      "latency_ms": 303,
+      "expect_refusal": false,
+      "top_titles": [
+        "客户成功部岗位职级与薪酬结构说明",
+        "客户成功部岗位职级与薪酬结构说明",
+        "客户成功部岗位职级与薪酬结构说明"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《数据平台部设备与资产领用制度》第三章 使用、折旧与维护里，DPWX-年份-四位流水号这种编号的格式要求是什么？（第十条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 0.5,
+      "ndcg": 0.631,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 661,
+      "expect_refusal": false,
+      "top_titles": [
+        "数据平台部设备与资产领用制度",
+        "数据平台部设备与资产领用制度",
+        "数据平台部设备与资产领用制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《数据平台部加班与调休管理办法》第二章 加班申请与认定里，JBSJ-年份-四位流水号这种编号的格式要求是什么？（第四条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 0.333,
+      "ndcg": 0.5,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 306,
+      "expect_refusal": false,
+      "top_titles": [
+        "人力资源部加班与调休管理办法",
+        "财务部加班与调休管理办法",
+        "数据平台部加班与调休管理办法"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《研发项目立项与验收流程》第二章 立项条件与审批里，RDLX-年份-四位流水号这种编号的格式要求是什么？（第五条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 347,
+      "expect_refusal": false,
+      "top_titles": [
+        "人力资源部研发项目立项与验收流程",
+        "研发中心研发项目立项与验收流程",
+        "研发中心研发项目立项与验收流程"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《产品部加班与调休管理办法》第二章 加班申请与审批流程里，CPJB-年份-四位流水号这种编号的格式要求是什么？（第四条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 352,
+      "expect_refusal": false,
+      "top_titles": [
+        "产品部加班与调休管理办法",
+        "财务部加班与调休管理办法",
+        "人力资源部加班与调休管理办法"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《供应链中心数据安全与权限管理规范》第二章 访问权限申请与审批里，SCDA-年份-四位流水号这种编号的格式要求是什么？（第四条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 376,
+      "expect_refusal": false,
+      "top_titles": [
+        "供应链中心数据安全与权限管理规范",
+        "供应链中心数据安全与权限管理规范",
+        "供应链中心数据安全与权限管理规范"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《培训与认证管理办法》第四章 认证管理与奖励里，CERT-年份-四位流水号这种编号的格式要求是什么？（第十条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 320,
+      "expect_refusal": false,
+      "top_titles": [
+        "供应链中心培训与认证管理办法",
+        "质量保障部培训与认证管理办法",
+        "产品部培训与认证管理办法"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《研发项目立项与验收流程》第一章 立项申请与审批里，CSR-年份-四位流水号这种编号的格式要求是什么？（第一条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 0.333,
+      "ndcg": 0.5,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 586,
+      "expect_refusal": false,
+      "top_titles": [
+        "研发中心研发项目立项与验收流程",
+        "人力资源部研发项目立项与验收流程",
+        "客户成功部研发项目立项与验收流程"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《客户投诉处理流程》第一章 总则与适用范围里，ESC-年份-四位流水号这种编号的格式要求是什么？（第三条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 0.5,
+      "ndcg": 0.631,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 289,
+      "expect_refusal": false,
+      "top_titles": [
+        "质量保障部客户投诉处理流程",
+        "客户成功部客户投诉处理流程",
+        "供应链中心客户投诉处理流程"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《数据安全与权限管理规范》第一章 总则与数据分级里，CSD-年份-四位流水号这种编号的格式要求是什么？（第三条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 304,
+      "expect_refusal": false,
+      "top_titles": [
+        "供应链中心数据安全与权限管理规范",
+        "市场部数据安全与权限管理规范",
+        "质量保障部数据安全与权限管理规范"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《供应商准入与评估规范》第三章 评估指标与合同约束里，DPS-年份-四位流水号这种编号的格式要求是什么？（第八条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 304,
+      "expect_refusal": false,
+      "top_titles": [
+        "供应链中心供应商准入与评估规范",
+        "数据平台部供应商准入与评估规范",
+        "质量保障部供应商准入与评估规范"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《数据平台部差旅补贴与市内交通细则》第一章 总则与适用范围里，DTP-年份-四位流水号这种编号的格式要求是什么？（第二条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 320,
+      "expect_refusal": false,
+      "top_titles": [
+        "数据平台部差旅补贴与市内交通细则",
+        "数据平台部差旅补贴与市内交通细则",
+        "产品部差旅补贴与市内交通细则"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《供应商准入与评估规范》第三章 评估指标与周期里，EVL-年份-四位流水号这种编号的格式要求是什么？（第九条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 552,
+      "expect_refusal": false,
+      "top_titles": [
+        "供应链中心供应商准入与评估规范",
+        "供应链中心供应商准入与评估规范",
+        "质量保障部供应商准入与评估规范"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《供应商准入与评估规范》第一章 总则与适用范围里，VEN-年份-四位流水号这种编号的格式要求是什么？（第3条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 321,
+      "expect_refusal": false,
+      "top_titles": [
+        "供应链中心供应商准入与评估规范",
+        "供应链中心供应商准入与评估规范",
+        "供应链中心供应商准入与评估规范"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《供应商准入与评估规范》第一章 总则与适用范围里，HRS-年份-四位流水号这种编号的格式要求是什么？（第3条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 0.25,
+      "ndcg": 0.431,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 377,
+      "expect_refusal": false,
+      "top_titles": [
+        "供应链中心供应商准入与评估规范",
+        "供应链中心供应商准入与评估规范",
+        "供应链中心供应商准入与评估规范"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《信息安全事件响应预案》第二章 上报时限与编号规则里，FWB-年份-四位流水号这种编号的格式要求是什么？（第四条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 326,
+      "expect_refusal": false,
+      "top_titles": [
+        "法务部信息安全事件响应预案",
+        "市场部信息安全事件响应预案",
+        "产品部信息安全事件响应预案"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《市场部信息安全事件响应预案》第二章 上报时限与编号规则里，INC-年份-四位流水号这种编号的格式要求是什么？（第四条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 326,
+      "expect_refusal": false,
+      "top_titles": [
+        "客户成功部信息安全事件响应预案",
+        "市场部信息安全事件响应预案",
+        "产品部信息安全事件响应预案"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《研发项目立项与验收流程》第四章 文档归档与变更里，ARC-年份-四位流水号这种编号的格式要求是什么？（第八条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 642,
+      "expect_refusal": false,
+      "top_titles": [
+        "产品部研发项目立项与验收流程",
+        "客户成功部研发项目立项与验收流程",
+        "供应链中心研发项目立项与验收流程"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《产品部固定资产盘点规程》第三章 差异处理里，CHG-年份-四位流水号这种编号的格式要求是什么？（第九条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 309,
+      "expect_refusal": false,
+      "top_titles": [
+        "产品部固定资产盘点规程",
+        "产品部固定资产盘点规程",
+        "财务部固定资产盘点规程"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《岗位职级与薪酬结构说明》第四章 申请与编号规范里，ADJ-年份-四位流水号这种编号的格式要求是什么？（第九条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 700,
+      "expect_refusal": false,
+      "top_titles": [
+        "质量保障部岗位职级与薪酬结构说明",
+        "客户成功部岗位职级与薪酬结构说明",
+        "人力资源部采购与付款审批流程"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《数据安全与权限管理规范》第三章 数据外发与传输管控里，NDA-年份-四位流水号这种编号的格式要求是什么？（第8条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 295,
+      "expect_refusal": false,
+      "top_titles": [
+        "研发中心数据安全与权限管理规范",
+        "产品部数据安全与权限管理规范",
+        "研发中心数据安全与权限管理规范"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《供应商准入与评估规范》第一章 总则与适用范围里，RCS-年份-四位流水号这种编号的格式要求是什么？（第三条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 0.25,
+      "ndcg": 0.431,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 298,
+      "expect_refusal": false,
+      "top_titles": [
+        "供应链中心供应商准入与评估规范",
+        "供应链中心供应商准入与评估规范",
+        "供应链中心供应商准入与评估规范"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《供应链中心数据安全与权限管理规范》第四章 违规处理与审计里，AUD-年份-四位流水号这种编号的格式要求是什么？（第十一条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 0,
+      "latency_ms": 363,
+      "expect_refusal": false,
+      "top_titles": [
+        "供应链中心数据安全与权限管理规范",
+        "供应链中心数据安全与权限管理规范",
+        "供应链中心数据安全与权限管理规范"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《客户成功部信息安全事件响应预案》第三章 处置流程与客户沟通里，BC-年份-四位流水号这种编号的格式要求是什么？（第九条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 0,
+      "latency_ms": 321,
+      "expect_refusal": false,
+      "top_titles": [
+        "质量保障部信息安全事件响应预案",
+        "客户成功部信息安全事件响应预案",
+        "人力资源部信息安全事件响应预案"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《客户成功部绩效考核与晋升办法》第一章 总则与考核周期里，QR-年份-四位流水号这种编号的格式要求是什么？（第三条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 321,
+      "expect_refusal": false,
+      "top_titles": [
+        "客户成功部绩效考核与晋升办法",
+        "客户成功部绩效考核与晋升办法",
+        "客户成功部绩效考核与晋升办法"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《# 供应商准入与评估规范》第一章 总则与适用范围里，VD-年份-四位流水号这种编号的格式要求是什么？（第二条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 393,
+      "expect_refusal": false,
+      "top_titles": [
+        "质量保障部供应商准入与评估规范",
+        "供应链中心供应商准入与评估规范",
+        "供应链中心供应商准入与评估规范"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《研发项目立项与验收流程》第二章 评审与里程碑里，BG-年份-四位流水号这种编号的格式要求是什么？（第6条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 293,
+      "expect_refusal": false,
+      "top_titles": [
+        "产品部研发项目立项与验收流程",
+        "数据平台部研发项目立项与验收流程",
+        "法务部研发项目立项与验收流程"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《数据安全与权限管理规范》第二章 访问审批与权限授予里，DC-年份-四位流水号这种编号的格式要求是什么？（第5条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 584,
+      "expect_refusal": false,
+      "top_titles": [
+        "数据平台部数据安全与权限管理规范",
+        "产品部数据安全与权限管理规范",
+        "研发中心数据安全与权限管理规范"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《数据平台部绩效考核与晋升办法》第一章 考核周期与组织里，SK-年份-四位流水号这种编号的格式要求是什么？（第三条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 309,
+      "expect_refusal": false,
+      "top_titles": [
+        "数据平台部绩效考核与晋升办法",
+        "数据平台部绩效考核与晋升办法",
+        "数据平台部绩效考核与晋升办法"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《# 数据平台部加班与调休管理办法》第二章 加班申请与审批流程里，GW-年份-四位流水号这种编号的格式要求是什么？（第五条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 319,
+      "expect_refusal": false,
+      "top_titles": [
+        "财务部加班与调休管理办法",
+        "数据平台部加班与调休管理办法",
+        "人力资源部加班与调休管理办法"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《合同评审与用印管理规范》第一章 总则与适用范围里，HY-年份-四位流水号这种编号的格式要求是什么？（第三条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 299,
+      "expect_refusal": false,
+      "top_titles": [
+        "产品部合同评审与用印管理规范",
+        "人力资源部合同评审与用印管理规范",
+        "财务部合同评审与用印管理规范"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《财务部信息安全事件响应预案》第一章 总则与事件分级里，AQ-年份-四位流水号这种编号的格式要求是什么？（第三条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 324,
+      "expect_refusal": false,
+      "top_titles": [
+        "质量保障部信息安全事件响应预案",
+        "财务部信息安全事件响应预案",
+        "财务部信息安全事件响应预案"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《岗位职级与薪酬结构说明》第四章 发放、核算与保密里，XC-年份-四位流水号这种编号的格式要求是什么？（第十一条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 303,
+      "expect_refusal": false,
+      "top_titles": [
+        "财务部岗位职级与薪酬结构说明",
+        "人力资源部岗位职级与薪酬结构说明",
+        "客户成功部岗位职级与薪酬结构说明"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《财务部培训与认证管理办法》第二章 费用承担与报销里，CE-年份-四位流水号这种编号的格式要求是什么？（第六条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 0,
+      "latency_ms": 289,
+      "expect_refusal": false,
+      "top_titles": [
+        "市场部培训与认证管理办法",
+        "财务部采购与付款审批流程",
+        "客户成功部培训与认证管理办法"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《差旅补贴与市内交通细则》第一章 总则与适用范围里，HR-年份-四位流水号这种编号的格式要求是什么？（第二条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 303,
+      "expect_refusal": false,
+      "top_titles": [
+        "人力资源部差旅补贴与市内交通细则",
+        "财务部差旅补贴与市内交通细则",
+        "数据平台部差旅补贴与市内交通细则"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《合同评审与用印管理规范》第一章 总则与适用范围里，SE-年份-四位流水号这种编号的格式要求是什么？（第3条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 321,
+      "expect_refusal": false,
+      "top_titles": [
+        "产品部合同评审与用印管理规范",
+        "财务部合同评审与用印管理规范",
+        "法务部合同评审与用印管理规范"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《绩效考核与晋升办法》第二章 考核流程与申诉里，KS-年份-四位流水号这种编号的格式要求是什么？（第六条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 0.5,
+      "ndcg": 0.631,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 279,
+      "expect_refusal": false,
+      "top_titles": [
+        "法务部绩效考核与晋升办法",
+        "人力资源部绩效考核与晋升办法",
+        "质量保障部绩效考核与晋升办法"
+      ]
+    },
+    {
+      "mode": "dense_bm25",
+      "question": "《固定资产盘点规程》第一章 总则与盘点周期里，FA-年份-四位流水号这种编号的格式要求是什么？（第三条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 281,
+      "expect_refusal": false,
+      "top_titles": [
+        "财务部固定资产盘点规程",
+        "数据平台部固定资产盘点规程",
+        "产品部固定资产盘点规程"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《研发中心绩效考核与晋升办法》第四章 申诉与附则里，APPEAL-年份-四位流水号这种编号的格式要求是什么？（第十一条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1328,
+      "expect_refusal": false,
+      "top_titles": [
+        "研发中心绩效考核与晋升办法",
+        "产品部绩效考核与晋升办法",
+        "法务部绩效考核与晋升办法"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《客户成功部差旅与住宿报销标准》第四章 报销时限与流程里，CSBX-年份-四位流水号这种编号的格式要求是什么？（第十条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 0,
+      "latency_ms": 1396,
+      "expect_refusal": false,
+      "top_titles": [
+        "数据平台部差旅与住宿报销标准",
+        "产品部差旅与住宿报销标准",
+        "数据平台部差旅与住宿报销标准"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《客户成功部岗位职级与薪酬结构说明》第二章 薪酬带宽与构成里，CSFY-年份-四位流水号这种编号的格式要求是什么？（第六条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 0,
+      "latency_ms": 1362,
+      "expect_refusal": false,
+      "top_titles": [
+        "客户成功部岗位职级与薪酬结构说明",
+        "供应链中心岗位职级与薪酬结构说明",
+        "客户成功部岗位职级与薪酬结构说明"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《数据平台部设备与资产领用制度》第三章 使用、折旧与维护里，DPWX-年份-四位流水号这种编号的格式要求是什么？（第十条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1490,
+      "expect_refusal": false,
+      "top_titles": [
+        "数据平台部设备与资产领用制度",
+        "市场部设备与资产领用制度",
+        "数据平台部设备与资产领用制度"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《数据平台部加班与调休管理办法》第二章 加班申请与认定里，JBSJ-年份-四位流水号这种编号的格式要求是什么？（第四条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1376,
+      "expect_refusal": false,
+      "top_titles": [
+        "数据平台部加班与调休管理办法",
+        "法务部加班与调休管理办法",
+        "研发中心加班与调休管理办法"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《研发项目立项与验收流程》第二章 立项条件与审批里，RDLX-年份-四位流水号这种编号的格式要求是什么？（第五条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1264,
+      "expect_refusal": false,
+      "top_titles": [
+        "人力资源部研发项目立项与验收流程",
+        "研发中心研发项目立项与验收流程",
+        "数据平台部研发项目立项与验收流程"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《产品部加班与调休管理办法》第二章 加班申请与审批流程里，CPJB-年份-四位流水号这种编号的格式要求是什么？（第四条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1635,
+      "expect_refusal": false,
+      "top_titles": [
+        "产品部加班与调休管理办法",
+        "研发中心加班与调休管理办法",
+        "研发中心加班与调休管理办法"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《供应链中心数据安全与权限管理规范》第二章 访问权限申请与审批里，SCDA-年份-四位流水号这种编号的格式要求是什么？（第四条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1574,
+      "expect_refusal": false,
+      "top_titles": [
+        "供应链中心数据安全与权限管理规范",
+        "供应链中心数据安全与权限管理规范",
+        "数据平台部数据安全与权限管理规范"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《培训与认证管理办法》第四章 认证管理与奖励里，CERT-年份-四位流水号这种编号的格式要求是什么？（第十条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1326,
+      "expect_refusal": false,
+      "top_titles": [
+        "供应链中心培训与认证管理办法",
+        "质量保障部培训与认证管理办法",
+        "市场部培训与认证管理办法"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《研发项目立项与验收流程》第一章 立项申请与审批里，CSR-年份-四位流水号这种编号的格式要求是什么？（第一条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 0.5,
+      "ndcg": 0.631,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1338,
+      "expect_refusal": false,
+      "top_titles": [
+        "客户成功部研发项目立项与验收流程",
+        "客户成功部研发项目立项与验收流程",
+        "研发中心研发项目立项与验收流程"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《客户投诉处理流程》第一章 总则与适用范围里，ESC-年份-四位流水号这种编号的格式要求是什么？（第三条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1359,
+      "expect_refusal": false,
+      "top_titles": [
+        "客户成功部客户投诉处理流程",
+        "法务部客户投诉处理流程",
+        "质量保障部客户投诉处理流程"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《数据安全与权限管理规范》第一章 总则与数据分级里，CSD-年份-四位流水号这种编号的格式要求是什么？（第三条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1388,
+      "expect_refusal": false,
+      "top_titles": [
+        "客户成功部数据安全与权限管理规范",
+        "法务部数据安全与权限管理规范",
+        "人力资源部数据安全与权限管理规范"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《供应商准入与评估规范》第三章 评估指标与合同约束里，DPS-年份-四位流水号这种编号的格式要求是什么？（第八条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1501,
+      "expect_refusal": false,
+      "top_titles": [
+        "数据平台部供应商准入与评估规范",
+        "数据平台部供应商准入与评估规范",
+        "数据平台部供应商准入与评估规范"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《数据平台部差旅补贴与市内交通细则》第一章 总则与适用范围里，DTP-年份-四位流水号这种编号的格式要求是什么？（第二条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1272,
+      "expect_refusal": false,
+      "top_titles": [
+        "数据平台部差旅补贴与市内交通细则",
+        "数据平台部差旅补贴与市内交通细则",
+        "人力资源部差旅补贴与市内交通细则"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《供应商准入与评估规范》第三章 评估指标与周期里，EVL-年份-四位流水号这种编号的格式要求是什么？（第九条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1277,
+      "expect_refusal": false,
+      "top_titles": [
+        "数据平台部供应商准入与评估规范",
+        "供应链中心供应商准入与评估规范",
+        "质量保障部供应商准入与评估规范"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《供应商准入与评估规范》第一章 总则与适用范围里，VEN-年份-四位流水号这种编号的格式要求是什么？（第3条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1423,
+      "expect_refusal": false,
+      "top_titles": [
+        "供应链中心供应商准入与评估规范",
+        "市场部供应商准入与评估规范",
+        "质量保障部供应商准入与评估规范"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《供应商准入与评估规范》第一章 总则与适用范围里，HRS-年份-四位流水号这种编号的格式要求是什么？（第3条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1327,
+      "expect_refusal": false,
+      "top_titles": [
+        "人力资源部供应商准入与评估规范",
+        "供应链中心供应商准入与评估规范",
+        "市场部供应商准入与评估规范"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《信息安全事件响应预案》第二章 上报时限与编号规则里，FWB-年份-四位流水号这种编号的格式要求是什么？（第四条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1515,
+      "expect_refusal": false,
+      "top_titles": [
+        "法务部信息安全事件响应预案",
+        "法务部信息安全事件响应预案",
+        "人力资源部信息安全事件响应预案"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《市场部信息安全事件响应预案》第二章 上报时限与编号规则里，INC-年份-四位流水号这种编号的格式要求是什么？（第四条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 0.333,
+      "ndcg": 0.5,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1535,
+      "expect_refusal": false,
+      "top_titles": [
+        "产品部信息安全事件响应预案",
+        "人力资源部信息安全事件响应预案",
+        "市场部信息安全事件响应预案"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《研发项目立项与验收流程》第四章 文档归档与变更里，ARC-年份-四位流水号这种编号的格式要求是什么？（第八条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1371,
+      "expect_refusal": false,
+      "top_titles": [
+        "产品部研发项目立项与验收流程",
+        "数据平台部研发项目立项与验收流程",
+        "研发中心研发项目立项与验收流程"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《产品部固定资产盘点规程》第三章 差异处理里，CHG-年份-四位流水号这种编号的格式要求是什么？（第九条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1306,
+      "expect_refusal": false,
+      "top_titles": [
+        "法务部固定资产盘点规程",
+        "数据平台部固定资产盘点规程",
+        "产品部固定资产盘点规程"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《岗位职级与薪酬结构说明》第四章 申请与编号规范里，ADJ-年份-四位流水号这种编号的格式要求是什么？（第九条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1696,
+      "expect_refusal": false,
+      "top_titles": [
+        "质量保障部岗位职级与薪酬结构说明",
+        "数据平台部岗位职级与薪酬结构说明",
+        "人力资源部岗位职级与薪酬结构说明"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《数据安全与权限管理规范》第三章 数据外发与传输管控里，NDA-年份-四位流水号这种编号的格式要求是什么？（第8条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1575,
+      "expect_refusal": false,
+      "top_titles": [
+        "研发中心数据安全与权限管理规范",
+        "人力资源部数据安全与权限管理规范",
+        "供应链中心数据安全与权限管理规范"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《供应商准入与评估规范》第一章 总则与适用范围里，RCS-年份-四位流水号这种编号的格式要求是什么？（第三条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1248,
+      "expect_refusal": false,
+      "top_titles": [
+        "研发中心供应商准入与评估规范",
+        "研发中心供应商准入与评估规范",
+        "供应链中心供应商准入与评估规范"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《供应链中心数据安全与权限管理规范》第四章 违规处理与审计里，AUD-年份-四位流水号这种编号的格式要求是什么？（第十一条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 0,
+      "latency_ms": 1455,
+      "expect_refusal": false,
+      "top_titles": [
+        "研发中心数据安全与权限管理规范",
+        "供应链中心供应商准入与评估规范",
+        "供应链中心数据安全与权限管理规范"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《客户成功部信息安全事件响应预案》第三章 处置流程与客户沟通里，BC-年份-四位流水号这种编号的格式要求是什么？（第九条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 0,
+      "latency_ms": 1340,
+      "expect_refusal": false,
+      "top_titles": [
+        "客户成功部信息安全事件响应预案",
+        "法务部信息安全事件响应预案",
+        "质量保障部信息安全事件响应预案"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《客户成功部绩效考核与晋升办法》第一章 总则与考核周期里，QR-年份-四位流水号这种编号的格式要求是什么？（第三条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1591,
+      "expect_refusal": false,
+      "top_titles": [
+        "客户成功部绩效考核与晋升办法",
+        "客户成功部绩效考核与晋升办法",
+        "客户成功部绩效考核与晋升办法"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《# 供应商准入与评估规范》第一章 总则与适用范围里，VD-年份-四位流水号这种编号的格式要求是什么？（第二条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 0.25,
+      "ndcg": 0.431,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1232,
+      "expect_refusal": false,
+      "top_titles": [
+        "市场部供应商准入与评估规范",
+        "供应链中心供应商准入与评估规范",
+        "法务部供应商准入与评估规范"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《研发项目立项与验收流程》第二章 评审与里程碑里，BG-年份-四位流水号这种编号的格式要求是什么？（第6条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1472,
+      "expect_refusal": false,
+      "top_titles": [
+        "财务部研发项目立项与验收流程",
+        "人力资源部研发项目立项与验收流程",
+        "研发中心研发项目立项与验收流程"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《数据安全与权限管理规范》第二章 访问审批与权限授予里，DC-年份-四位流水号这种编号的格式要求是什么？（第5条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1416,
+      "expect_refusal": false,
+      "top_titles": [
+        "数据平台部数据安全与权限管理规范",
+        "研发中心数据安全与权限管理规范",
+        "产品部数据安全与权限管理规范"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《数据平台部绩效考核与晋升办法》第一章 考核周期与组织里，SK-年份-四位流水号这种编号的格式要求是什么？（第三条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1695,
+      "expect_refusal": false,
+      "top_titles": [
+        "数据平台部绩效考核与晋升办法",
+        "数据平台部绩效考核与晋升办法",
+        "数据平台部绩效考核与晋升办法"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《# 数据平台部加班与调休管理办法》第二章 加班申请与审批流程里，GW-年份-四位流水号这种编号的格式要求是什么？（第五条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1528,
+      "expect_refusal": false,
+      "top_titles": [
+        "法务部加班与调休管理办法",
+        "研发中心加班与调休管理办法",
+        "质量保障部加班与调休管理办法"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《合同评审与用印管理规范》第一章 总则与适用范围里，HY-年份-四位流水号这种编号的格式要求是什么？（第三条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1213,
+      "expect_refusal": false,
+      "top_titles": [
+        "客户成功部合同评审与用印管理规范",
+        "产品部合同评审与用印管理规范",
+        "数据平台部合同评审与用印管理规范"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《财务部信息安全事件响应预案》第一章 总则与事件分级里，AQ-年份-四位流水号这种编号的格式要求是什么？（第三条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1446,
+      "expect_refusal": false,
+      "top_titles": [
+        "财务部信息安全事件响应预案",
+        "财务部信息安全事件响应预案",
+        "财务部信息安全事件响应预案"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《岗位职级与薪酬结构说明》第四章 发放、核算与保密里，XC-年份-四位流水号这种编号的格式要求是什么？（第十一条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1276,
+      "expect_refusal": false,
+      "top_titles": [
+        "财务部岗位职级与薪酬结构说明",
+        "供应链中心岗位职级与薪酬结构说明",
+        "人力资源部岗位职级与薪酬结构说明"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《财务部培训与认证管理办法》第二章 费用承担与报销里，CE-年份-四位流水号这种编号的格式要求是什么？（第六条）",
+      "intent": "factual",
+      "recall": 0.0,
+      "mrr": 0.0,
+      "ndcg": 0.0,
+      "retrieved": 5,
+      "gold_count": 0,
+      "latency_ms": 1533,
+      "expect_refusal": false,
+      "top_titles": [
+        "数据平台部培训与认证管理办法",
+        "市场部培训与认证管理办法",
+        "财务部培训与认证管理办法"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《差旅补贴与市内交通细则》第一章 总则与适用范围里，HR-年份-四位流水号这种编号的格式要求是什么？（第二条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1318,
+      "expect_refusal": false,
+      "top_titles": [
+        "人力资源部差旅补贴与市内交通细则",
+        "人力资源部差旅补贴与市内交通细则",
+        "财务部差旅补贴与市内交通细则"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《合同评审与用印管理规范》第一章 总则与适用范围里，SE-年份-四位流水号这种编号的格式要求是什么？（第3条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1631,
+      "expect_refusal": false,
+      "top_titles": [
+        "人力资源部合同评审与用印管理规范",
+        "产品部合同评审与用印管理规范",
+        "客户成功部合同评审与用印管理规范"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《绩效考核与晋升办法》第二章 考核流程与申诉里，KS-年份-四位流水号这种编号的格式要求是什么？（第六条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 1.0,
+      "ndcg": 1.0,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1267,
+      "expect_refusal": false,
+      "top_titles": [
+        "人力资源部绩效考核与晋升办法",
+        "质量保障部绩效考核与晋升办法",
+        "法务部绩效考核与晋升办法"
+      ]
+    },
+    {
+      "mode": "dense_bm25_rerank",
+      "question": "《固定资产盘点规程》第一章 总则与盘点周期里，FA-年份-四位流水号这种编号的格式要求是什么？（第三条）",
+      "intent": "factual",
+      "recall": 1.0,
+      "mrr": 0.25,
+      "ndcg": 0.431,
+      "retrieved": 5,
+      "gold_count": 1,
+      "latency_ms": 1262,
+      "expect_refusal": false,
+      "top_titles": [
+        "供应链中心固定资产盘点规程",
+        "财务部固定资产盘点规程",
+        "质量保障部固定资产盘点规程"
+      ]
+    }
+  ]
+}
