@@ -158,6 +158,117 @@ class LocalEmbedder(BaseEmbedder):
         return vecs[0]
 
 
+class OllamaEmbedder(BaseEmbedder):
+    """
+    Ollama 本地 embedding（离线、零 API 成本）。
+
+    为什么选这条路（面试可讲）：
+      1. 零成本、可离线演示 —— 不受云端额度/网络影响；
+      2. 数据不出本机 —— 企业场景里"文档不能上传第三方"是硬要求，
+         本地模型是唯一能过合规的方案；
+      3. 可以自由换模型（bge-m3 / qwen3-embedding / nomic-embed-text…），
+         只要改 .env 一行。
+
+    实测对比（本机，两个模型都是 1024 维）：
+      bge-m3:latest         单条查询 ~491ms，cos(年假制度,带薪休假)=0.72 / (年假制度,今天天气)=0.40
+      qwen3-embedding:0.6b  单条查询 ~1528ms，cos=0.77 / 0.27（区分度略好但慢 3 倍）
+      -> 选 bge-m3：检索每次提问都要向量化 1 条 query，延迟直接影响体感；
+         而 bge-m3 也是业界中文 RAG 的常用默认，简历上更好解释。
+
+    接口选择：
+      用原生 /api/embed 而不是 OpenAI 兼容的 /v1/embeddings ——
+      两者在本版本 Ollama 上都能用，但原生接口的字段更简单、不受 OpenAI 协议细节影响。
+      （如果以后要换成任意 OpenAI 兼容服务，直接切 EMBEDDING_PROVIDER=dashscope 即可，
+       这正是抽象层的价值。）
+
+    工程细节：
+      - 批量：Ollama 的 /api/embed 支持 input 传数组，一次请求多段文本，减少往返；
+      - 探测：启动时先发一条短文本拿到真实维度，避免 .env 里的 EMBEDDING_DIM 写错
+        导致向量库维度不匹配（这类错误在写入时才会暴露，排查很痛）；
+      - 重试：本地服务偶发超时，做 2 次退避重试。
+    """
+
+    def __init__(self) -> None:
+        self.name = settings.OLLAMA_EMBED_MODEL
+        self.dim = settings.EMBEDDING_DIM
+        self.base_url = settings.OLLAMA_BASE_URL.rstrip("/")
+        self.batch_size = settings.EMBEDDING_BATCH_SIZE
+        self._client = None
+
+    def _get_client(self):
+        if self._client is None:
+            import httpx
+
+            self._client = httpx.AsyncClient(
+                base_url=self.base_url,
+                timeout=httpx.Timeout(120.0, connect=10.0),
+            )
+        return self._client
+
+    async def probe(self) -> None:
+        """启动时探测：确认服务可用，并校准真实维度。"""
+        vecs = await self._embed(["维度探测"])
+        real_dim = len(vecs[0])
+        if settings.EMBEDDING_DIM and real_dim != settings.EMBEDDING_DIM:
+            logger.warning(
+                f"Ollama 模型实际维度={real_dim}，但配置 EMBEDDING_DIM={settings.EMBEDDING_DIM}；"
+                f"已以实际维度为准（配置写错会导致向量写入失败）"
+            )
+        self.dim = real_dim
+        logger.info(f"Ollama embedding 就绪: {self.base_url} model={self.name} dim={self.dim}")
+
+    async def _embed(self, texts: list[str]) -> list[list[float]]:
+        client = self._get_client()
+        last_err: Exception | None = None
+        for attempt in range(3):
+            try:
+                resp = await client.post(
+                    "/api/embed",
+                    json={"model": self.name, "input": texts},
+                )
+                resp.raise_for_status()
+                data = resp.json()
+                embs = data.get("embeddings") or []
+                if len(embs) != len(texts):
+                    raise RuntimeError(f"返回条数不匹配: {len(embs)} vs {len(texts)}")
+                return embs
+            except Exception as e:  # noqa: BLE001
+                last_err = e
+                wait = 1.0 * (attempt + 1)
+                logger.warning(f"Ollama embedding 第{attempt + 1}次失败({str(e)[:80]})，{wait}s 后重试")
+                await asyncio.sleep(wait)
+        raise RuntimeError(
+            f"Ollama embedding 连续失败: {last_err}。"
+            f"请确认 ollama 正在运行（{self.base_url}）且已 pull 模型 {self.name}"
+        )
+
+    async def embed_documents(self, texts: list[str]) -> list[list[float]]:
+        if not texts:
+            return []
+        # 空文本 Ollama 会报错，替换成占位符保证下标对齐
+        clean = [(t.strip() or "空内容")[:6000] for t in texts]
+        batches = [clean[i:i + self.batch_size] for i in range(0, len(clean), self.batch_size)]
+
+        t0 = time.perf_counter()
+        out: list[list[float]] = []
+        # 本地模型串行更划算：并发会争抢 CPU/GPU，反而更慢
+        for b in batches:
+            out.extend(await self._embed(b))
+        cost = time.perf_counter() - t0
+        logger.info(f"Ollama 向量化 {len(texts)} 条 / {len(batches)} 批，"
+                    f"耗时 {cost:.2f}s ({len(texts) / max(cost, 1e-6):.1f} 条/秒)")
+        return out
+
+    async def embed_query(self, text: str) -> list[float]:
+        vecs = await self._embed([text])
+        return vecs[0]
+
+    async def close(self) -> None:
+        if self._client is not None:
+            await self._client.aclose()
+            self._client = None
+
+
 def cosine_similarity(a: list[float], b: list[float]) -> float:
     """余弦相似度。用于语义切分判断相邻句是否该断开。"""
     if not a or not b:
@@ -173,11 +284,19 @@ _embedder: BaseEmbedder | None = None
 _lock = asyncio.Lock()
 
 
-def build_embedder() -> BaseEmbedder:
-    """按配置造 Embedding。改 .env 即可切 provider。"""
+async def build_embedder() -> BaseEmbedder:
+    """按配置造 Embedding。改 .env 即可切 provider（这就是"热切换"的落点）。
+
+    注意是 async 的：Ollama 需要先探测模型维度（避免配置里的 EMBEDDING_DIM 与实际模型不符），
+    探测要发一次 HTTP 请求，所以工厂本身也得是异步的。
+    """
     provider = settings.EMBEDDING_PROVIDER.lower()
     if provider in ("dashscope", "openai", "aliyun"):
         return DashScopeEmbedder()
+    if provider in ("ollama", "local-ollama"):
+        emb = OllamaEmbedder()
+        await emb.probe()          # 探测维度与实际可用性，启动时就 fail fast
+        return emb
     if provider in ("local", "sentence-transformers", "hf"):
         return LocalEmbedder()
     raise ValueError(f"未知的 EMBEDDING_PROVIDER: {settings.EMBEDDING_PROVIDER}")
@@ -189,6 +308,6 @@ async def get_embedder() -> BaseEmbedder:
     if _embedder is None:
         async with _lock:
             if _embedder is None:
-                _embedder = build_embedder()
+                _embedder = await build_embedder()
                 logger.info(f"Embedding 就绪: provider={settings.EMBEDDING_PROVIDER} model={_embedder.name}")
     return _embedder

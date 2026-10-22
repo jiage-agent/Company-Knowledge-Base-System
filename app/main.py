@@ -63,6 +63,24 @@ async def lifespan(app: FastAPI):
         logger.warning(f"向量库自检失败: {str(e)[:200]}")
 
     logger.info(f"LLM: {settings.LLM_PROVIDER}/{settings.LLM_MODEL}")
+
+    # 启动时预热重排模型（重要：避免首个用户请求承担 8~30 秒的冷启动）
+    # 实测：本地 Cross-Encoder 第一次加载要 8 秒（GPU）/ 更久（CPU），
+    # 如果不预热，第一个提问的用户会等半分钟，体验很差。
+    # 这是"启动慢一点、首请求快一点"的经典取舍，生产系统都这么做。
+    if settings.RERANK_ENABLED:
+        try:
+            from app.rag.reranker import build_reranker
+
+            rr = build_reranker()
+            if hasattr(rr, "_ensure_model"):
+                import asyncio as _asyncio
+
+                await _asyncio.to_thread(rr._ensure_model)
+            logger.info(f"重排预热完成: {rr.name}")
+        except Exception as e:  # noqa: BLE001
+            logger.warning(f"重排预热失败（将降级运行）: {str(e)[:200]}")
+
     logger.info(f"重排: provider={settings.RERANK_PROVIDER} enabled={settings.RERANK_ENABLED}")
     logger.info(f"接口文档: http://127.0.0.1:8000/docs")
     logger.info("=" * 72)

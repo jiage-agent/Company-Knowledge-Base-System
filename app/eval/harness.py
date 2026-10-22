@@ -199,19 +199,35 @@ async def _resolve_gold_chunks(
 async def _pick_eval_user(session: AsyncSession, tenant_id: int, item: dict) -> User:
     """
     为每条评测样本挑选合适的用户。
-    带 only_roles 的样本（财务机密类）必须用有权限的账号去测，
-    否则测的是"权限拦截"而不是"检索能力" —— 两类指标不能混在一起。
+
+    规则（踩过坑之后的修正）：
+      1. 带 only_roles 的样本（权限类）用对应角色的账号；
+      2. 其余样本**优先用管理员**。
+
+    ⚠️ 为什么默认要用管理员（实测踩坑）：
+        最初默认用"权限最低的普通成员"，本意是取保守下界。
+        但后来为了演示干净，把合成语料隔离到了 __corpus__ 部门（只有 admin 可见），
+        于是评测时普通成员根本看不到那 300 多篇文档 ——
+        gold 块解析出来是 0 个，recall 直接变成 0.05。
+        **测出来的不是"检索能力"，而是"权限拦截"**，指标完全失去意义。
+        检索指标的前提是"评测用户能看到 gold 块"，所以默认必须用能看到全库的账号；
+        权限本身的正确性由专门的权限用例（only_roles）来测，两者不能混。
     """
     roles = item.get("only_roles")
     stmt = select(User).where(User.tenant_id == tenant_id, User.is_active == True)  # noqa: E712
     users = (await session.execute(stmt)).scalars().all()
     if not users:
         raise RuntimeError("没有可用用户，请先运行 scripts/seed.py")
+
     if roles:
         for u in users:
             if u.role in roles or u.department in roles:
                 return u
-    # 默认用普通成员账号（最低权限），这样测出的检索指标是最保守的下界
+
+    # 默认用管理员：确保能看到全库，测的才是检索能力
+    for u in users:
+        if u.role == "admin":
+            return u
     for u in users:
         if u.role == "member":
             return u

@@ -26,6 +26,7 @@
 from __future__ import annotations
 
 import asyncio
+import threading
 import time
 
 from app.config import settings
@@ -123,6 +124,21 @@ class LocalCrossEncoderReranker(BaseReranker):
 
     模型懒加载 + 单例：加载一次权重（约 1GB）后常驻，
     绝不每次请求都 load —— 那会让单次问答延迟增加几秒。
+
+    分数归一化（重要，踩过坑）：
+        bge-reranker-base 的输出是**原始 logits**（可正可负、无上界），
+        直接当"相关性分数"用会有两个问题：
+          1. 和下游的阈值比较没意义（阈值是按 0~1 的相关性标定的）；
+          2. 进置信度公式时尺度不对。
+        所以这里显式做 sigmoid 归一化到 0~1。
+        实测（本机 RTX 4060）：30 条候选 sigmoid 后落在 0.867~0.995，
+        分数偏高是正常的 —— 这批候选本身都是"编号格式"类条款，语义高度相似，
+        模型给高分是合理的；区分"有没有答案"要靠阈值标定（见 scripts/calibrate_rerank.py）。
+
+    GPU 加速（实测）：
+        同一批 30 条候选：CPU 约 2~4 秒，RTX 4060 只要 69ms。
+        重排是"逐对前向计算"，天然适合 GPU；CPU 上跑会让端到端延迟无法接受。
+        所以 RERANK_DEVICE=auto 时会优先用 CUDA，没有则回退 CPU（并会明显变慢）。
     """
 
     name = "local-cross-encoder"
@@ -136,6 +152,18 @@ class LocalCrossEncoderReranker(BaseReranker):
         if self._model is not None or self._load_failed:
             return self._model
         try:
+            import os
+
+            # 关键：强制离机加载（实测踩坑）
+            #   不加这个环境变量时，sentence-transformers 每次实例化都会去
+            #   huggingface.co 做一次"模型是否有新版本"的 HEAD 请求。
+            #   国内该域名不可达，于是触发 5 次指数退避重试（1+2+4+8+16 秒），
+            #   每次加载都白等十几秒 —— 排查时表现为"评测跑得极慢"，
+            #   但日志里只有 huggingface_hub 的 WARNING，很容易被忽略。
+            #   设成 1 后直接读本地缓存，加载稳定在 8 秒左右（首次），之后常驻。
+            os.environ.setdefault("HF_HUB_OFFLINE", "1")
+            os.environ.setdefault("HF_ENDPOINT", settings.HF_ENDPOINT)
+
             import torch
             from sentence_transformers import CrossEncoder
 
@@ -161,12 +189,19 @@ class LocalCrossEncoderReranker(BaseReranker):
             return candidates[:top_k]
 
         pairs = [(query, c.content) for c in candidates]
-        scores = await asyncio.to_thread(
-            lambda: model.predict(pairs, batch_size=16, show_progress_bar=False)
+        raw_scores = await asyncio.to_thread(
+            lambda: model.predict(pairs, batch_size=32, show_progress_bar=False)
         )
-        for c, s in zip(candidates, scores):
+
+        # 显式 sigmoid：bge-reranker 输出的是 logits，必须归一化到 0~1
+        # 否则会和按 0~1 标定的阈值、置信度公式全部对不上
+        import math
+
+        for c, s in zip(candidates, raw_scores):
             c.meta["pre_rerank_score"] = c.score
-            c.score = float(s)
+            x = float(s)
+            c.meta["rerank_logit"] = x
+            c.score = 1.0 / (1.0 + math.exp(-x))
             c.source = "rerank"
         return sorted(candidates, key=lambda x: x.score, reverse=True)[:top_k]
 
@@ -182,16 +217,43 @@ class NoopReranker(BaseReranker):
         return candidates[:top_k]
 
 
+# ============================================================
+# 工厂 + 单例
+# ============================================================
+# ⚠️ 这里必须做进程级单例（实测踩到的严重性能 bug）：
+#   最初 build_reranker() 每次被调用都 new 一个 LocalCrossEncoderReranker，
+#   而 HybridRetriever.__init__ 里会调它 —— 于是**每次检索都重新加载一遍模型**。
+#   GPU 上单次加载约 8 秒，表现为"评测跑一次要好几分钟、单次问答延迟 7.8 秒"。
+#   更糟的是这个 bug 在 API 链路上同样存在：每个请求都会重新加载 1GB 权重。
+#   修复：模块级缓存，按 provider 只构造一次，模型权重与 GPU 显存只占一份。
+_reranker_instance: BaseReranker | None = None
+_reranker_lock = threading.Lock()
+
+
 def build_reranker() -> BaseReranker:
-    """按配置构造重排器（热切换点）。"""
-    if not settings.RERANK_ENABLED:
-        logger.info("重排已关闭（RERANK_ENABLED=false）")
-        return NoopReranker()
-    provider = settings.RERANK_PROVIDER.lower()
-    if provider == "api":
-        return DashScopeReranker()
-    if provider == "local":
-        return LocalCrossEncoderReranker()
-    if provider in ("none", "off"):
-        return NoopReranker()
-    raise ValueError(f"未知的 RERANK_PROVIDER: {settings.RERANK_PROVIDER}")
+    """按配置构造重排器（进程级单例）。改 .env 需重启进程才生效。"""
+    global _reranker_instance
+    if _reranker_instance is not None:
+        return _reranker_instance
+
+    with _reranker_lock:
+        if _reranker_instance is not None:
+            return _reranker_instance
+
+        if not settings.RERANK_ENABLED:
+            logger.info("重排已关闭（RERANK_ENABLED=false）")
+            _reranker_instance = NoopReranker()
+            return _reranker_instance
+
+        provider = settings.RERANK_PROVIDER.lower()
+        if provider == "api":
+            _reranker_instance = DashScopeReranker()
+        elif provider == "local":
+            _reranker_instance = LocalCrossEncoderReranker()
+        elif provider in ("none", "off"):
+            _reranker_instance = NoopReranker()
+        else:
+            raise ValueError(f"未知的 RERANK_PROVIDER: {settings.RERANK_PROVIDER}")
+
+        logger.info(f"重排器已初始化（单例）: {_reranker_instance.name}")
+        return _reranker_instance

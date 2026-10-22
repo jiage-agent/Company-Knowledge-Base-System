@@ -44,14 +44,17 @@ class Settings(BaseSettings):
 
     # ---------------- Embedding（向量模型） ----------------
     # provider: dashscope(阿里云百炼, 走 OpenAI 兼容协议) | local(本地 sentence-transformers)
-    EMBEDDING_PROVIDER: str = "dashscope"
-    EMBEDDING_MODEL: str = "text-embedding-v4"
+    EMBEDDING_PROVIDER: str = "ollama"
+    EMBEDDING_MODEL: str = "bge-m3:latest"
     EMBEDDING_DIM: int = 1024
     EMBEDDING_BATCH_SIZE: int = 10
     EMBEDDING_API_KEY: str = ""
     EMBEDDING_BASE_URL: str = ""
     EMBEDDING_LOCAL_MODEL: str = "BAAI/bge-small-zh-v1.5"
     HF_ENDPOINT: str = "https://hf-mirror.com"
+    # Ollama 本地服务（provider=ollama 时使用）
+    OLLAMA_BASE_URL: str = "http://127.0.0.1:11434"
+    OLLAMA_EMBED_MODEL: str = "bge-m3:latest"
 
     # ---------------- Reranker（重排） ----------------
     RERANK_ENABLED: bool = True
