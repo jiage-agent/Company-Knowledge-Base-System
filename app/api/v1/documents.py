@@ -108,7 +108,22 @@ async def list_documents(
 ):
     conds = [Document.tenant_id == perm.tenant_id, Document.is_active == True]  # noqa: E712
     if not perm.is_admin:
+        # 权限条件必须**下推**到 SQL，不能只过滤密级然后靠 Python 后置过滤。
+        # 这是踩过的真实 bug：原来只加了 security_level 条件，然后取最新 20 篇，
+        # 再在 Python 里用 can_access 过滤。结果当一个租户里有大量"别的部门的公开文档"时，
+        # 最新的 20 篇全被过滤掉 -> 列表返回 0 篇（明明有 2 篇他有权限看）。
+        # 这就是典型的"后置过滤导致候选塌缩"，和向量检索里的坑是同一个道理。
         conds.append(Document.security_level <= perm.security_level)
+        if perm.department:
+            from sqlalchemy import or_
+
+            conds.append(
+                or_(
+                    Document.department == perm.department,
+                    Document.department == "",
+                    Document.department.is_(None),
+                )
+            )
     if status:
         conds.append(Document.status == status)
     if doc_type:
@@ -123,8 +138,8 @@ async def list_documents(
         .order_by(Document.created_at.desc()).limit(limit).offset(offset)
     )).scalars().all()
 
-    # 列表接口也要过一遍权限判定：密级相同但部门不同的文档不应出现在列表里。
-    # 只在 SQL 层过滤密级是不够的 —— 部门维度也要拦（这是很多项目的漏洞点）。
+    # 兜底再校验一次（不信任单点）：SQL 无法表达"角色白名单"这种条件，
+    # 所以这一层保留，作为纵深防御。
     visible = [
         d for d in rows
         if perm.can_access({
